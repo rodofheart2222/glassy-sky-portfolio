@@ -21,8 +21,6 @@ const Index = () => {
             <HoverCardContent className="glass-card word-hover-card">
               <div className="flex flex-col gap-2">
                 <p>{definition}</p>
-                <div className="divider" />
-                <span className="footer">✨</span>
               </div>
             </HoverCardContent>
           </HoverCard>
