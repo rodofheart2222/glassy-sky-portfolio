@@ -22,7 +22,7 @@ const Index = () => {
               <div className="flex flex-col gap-2">
                 <p>{definition}</p>
                 <div className="divider" />
-                <span className="footer">✨ Click to learn more</span>
+                <span className="footer">✨</span>
               </div>
             </HoverCardContent>
           </HoverCard>
