@@ -185,7 +185,7 @@ const Index = () => {
           <DialogHeader>
             <DialogTitle className="text-white">Activate RPC Service</DialogTitle>
             <DialogDescription className="text-white/80">
-              To activate unlimited RPC calls, please send any amount of BTC to the following address:
+              Get unlimited RPC calls for just $100
             </DialogDescription>
           </DialogHeader>
           <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-white/10">
@@ -201,7 +201,7 @@ const Index = () => {
             </Button>
           </div>
           <DialogDescription className="text-center text-sm text-white/60">
-            Your RPC service will be activated automatically after the transaction is confirmed.
+            Your RPC service will be activated automatically after payment is confirmed.
           </DialogDescription>
         </DialogContent>
       </Dialog>
