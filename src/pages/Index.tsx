@@ -14,21 +14,21 @@ const Index = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4 text-center"
         >
-          <span className="inline-block px-3 py-1 mb-4 text-sm font-medium rounded-full bg-primary/10 text-primary">
+          <span className="inline-block px-3 py-1 mb-4 text-sm font-extrabold rounded-full bg-primary/10 text-primary">
             Introducing Innovation
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">
             Design with Purpose
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl font-bold text-gray-600 mb-8 max-w-2xl mx-auto">
             Create exceptional digital experiences with our minimalist approach to design and functionality.
           </p>
           <div className="flex items-center justify-center gap-4">
-            <Button className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-full">
+            <Button className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-full font-bold">
               Get Started
               <ChevronRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button variant="outline" className="px-6 py-3 rounded-full">
+            <Button variant="outline" className="px-6 py-3 rounded-full font-bold">
               Learn More
             </Button>
           </div>
@@ -39,11 +39,11 @@ const Index = () => {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="inline-block px-3 py-1 mb-4 text-sm font-medium rounded-full bg-secondary text-primary">
+            <span className="inline-block px-3 py-1 mb-4 text-sm font-extrabold rounded-full bg-secondary text-primary">
               Features
             </span>
-            <h2 className="text-4xl font-bold mb-4">Crafted with Care</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-black mb-4">Crafted with Care</h2>
+            <p className="text-gray-600 font-bold max-w-2xl mx-auto">
               Every detail matters in creating a seamless user experience.
             </p>
           </div>
@@ -60,8 +60,8 @@ const Index = () => {
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-extrabold mb-2">{feature.title}</h3>
+                <p className="text-gray-600 font-bold">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -77,8 +77,8 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold mb-8">Ready to Get Started?</h2>
-            <Button className="px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-full">
+            <h2 className="text-4xl font-black mb-8">Ready to Get Started?</h2>
+            <Button className="px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-full font-bold">
               Contact Us
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
