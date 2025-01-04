@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ArrowRight, Star } from "lucide-react";
+import { ChevronRight, ArrowRight, Star, Copy } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import {
   HoverCard,
   HoverCardContent,
@@ -8,6 +17,18 @@ import {
 } from "@/components/ui/hover-card";
 
 const Index = () => {
+  const [showDepositDialog, setShowDepositDialog] = useState(false);
+  const { toast } = useToast();
+  const btcAddress = "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh";
+
+  const handleCopyAddress = () => {
+    navigator.clipboard.writeText(btcAddress);
+    toast({
+      title: "Address copied!",
+      description: "BTC address has been copied to clipboard",
+    });
+  };
+
   const wrapWordsWithHoverCard = (text: string, definitions: Record<string, string>) => {
     return text.split(' ').map((word, index) => {
       const cleanWord = word.replace(/[.,!?]/, '');
@@ -86,7 +107,10 @@ const Index = () => {
             {wrapWordsWithHoverCard("Scale your applications with unlimited remote procedure calls. No throttling, no limits", definitions)}
           </p>
           <div className="flex items-center justify-center gap-6">
-            <Button className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform hover:scale-105 transition-all">
+            <Button 
+              className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform hover:scale-105 transition-all"
+              onClick={() => setShowDepositDialog(true)}
+            >
               {wrapWordsWithHoverCard("Start Building", definitions)}
               <ChevronRight className="ml-2 h-6 w-6" />
             </Button>
@@ -155,6 +179,32 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      <Dialog open={showDepositDialog} onOpenChange={setShowDepositDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Activate RPC Service</DialogTitle>
+            <DialogDescription>
+              To activate unlimited RPC calls, please send any amount of BTC to the following address:
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex items-center space-x-2 bg-secondary/20 p-4 rounded-lg">
+            <code className="flex-1 text-sm break-all">{btcAddress}</code>
+            <Button
+              type="button"
+              variant="secondary"
+              className="px-3"
+              onClick={handleCopyAddress}
+            >
+              <Copy className="h-4 w-4" />
+              <span className="sr-only">Copy</span>
+            </Button>
+          </div>
+          <DialogDescription className="text-center text-sm">
+            Your RPC service will be activated automatically after the transaction is confirmed.
+          </DialogDescription>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
