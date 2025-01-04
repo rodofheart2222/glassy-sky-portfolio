@@ -181,26 +181,26 @@ const Index = () => {
       </section>
 
       <Dialog open={showDepositDialog} onOpenChange={setShowDepositDialog}>
-        <DialogContent className="sm:max-w-md glass-card border-0">
+        <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-white">Activate RPC Service</DialogTitle>
-            <DialogDescription className="text-white/80">
+            <DialogTitle>Activate RPC Service</DialogTitle>
+            <DialogDescription>
               To activate unlimited RPC calls, please send any amount of BTC to the following address:
             </DialogDescription>
           </DialogHeader>
-          <div className="flex items-center space-x-2 bg-white/5 p-4 rounded-lg border border-white/10">
-            <code className="flex-1 text-sm break-all text-white/90">{btcAddress}</code>
+          <div className="flex items-center space-x-2 bg-secondary/20 p-4 rounded-lg">
+            <code className="flex-1 text-sm break-all">{btcAddress}</code>
             <Button
               type="button"
               variant="secondary"
-              className="px-3 bg-white/10 hover:bg-white/20 text-white"
+              className="px-3"
               onClick={handleCopyAddress}
             >
               <Copy className="h-4 w-4" />
               <span className="sr-only">Copy</span>
             </Button>
           </div>
-          <DialogDescription className="text-center text-sm text-white/60">
+          <DialogDescription className="text-center text-sm">
             Your RPC service will be activated automatically after the transaction is confirmed.
           </DialogDescription>
         </DialogContent>
