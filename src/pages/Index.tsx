@@ -20,9 +20,9 @@ const Index = () => {
             </HoverCardTrigger>
             <HoverCardContent className="glass-card word-hover-card">
               <div className="flex flex-col gap-2">
-                <p className="text-sm font-medium text-white/90">{definition}</p>
-                <div className="h-px bg-white/10" />
-                <span className="text-xs text-white/60 italic">Hover for more info</span>
+                <p>{definition}</p>
+                <div className="divider" />
+                <span className="footer">✨ Click to learn more</span>
               </div>
             </HoverCardContent>
           </HoverCard>
