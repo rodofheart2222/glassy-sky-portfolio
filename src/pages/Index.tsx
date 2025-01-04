@@ -11,21 +11,23 @@ const Index = () => {
   const wrapWordsWithHoverCard = (text: string, definitions: Record<string, string>) => {
     return text.split(' ').map((word, index) => {
       const cleanWord = word.replace(/[.,!?]/, '');
-      if (definitions[cleanWord.toLowerCase()]) {
-        return (
-          <span key={index} className="inline-block mx-1">
-            <HoverCard>
-              <HoverCardTrigger className="hover:text-primary/80 transition-colors">
-                {word}
-              </HoverCardTrigger>
-              <HoverCardContent className="glass-card w-64 p-4 hover-card">
-                <p className="text-sm text-white/90">{definitions[cleanWord.toLowerCase()]}</p>
-              </HoverCardContent>
-            </HoverCard>
-          </span>
-        );
-      }
-      return <span key={index} className="inline-block mx-1">{word}</span>;
+      const definition = definitions[cleanWord.toLowerCase()] || `This is the word "${cleanWord}"`;
+      return (
+        <span key={index} className="inline-block mx-1">
+          <HoverCard>
+            <HoverCardTrigger className="hover:text-primary/80 transition-colors">
+              {word}
+            </HoverCardTrigger>
+            <HoverCardContent className="glass-card word-hover-card">
+              <div className="flex flex-col gap-2">
+                <p className="text-sm font-medium text-white/90">{definition}</p>
+                <div className="h-px bg-white/10" />
+                <span className="text-xs text-white/60 italic">Hover for more info</span>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
+        </span>
+      );
     });
   };
 
@@ -41,6 +43,27 @@ const Index = () => {
     limits: "Restrictions on usage or capacity",
     no: "Absence of restrictions",
     rpc: "Remote Procedure Call - a protocol for requesting a service",
+    your: "Belonging to or associated with the user",
+    with: "Accompanied by or using",
+    the: "Used to point to a specific item",
+    documentation: "Written materials that explain how to use a product",
+    start: "Begin a process or action",
+    building: "Creating or developing something",
+    today: "On the present day",
+    features: "Special characteristics or capabilities",
+    possibilities: "Potential outcomes or capabilities",
+    experience: "Knowledge or skill gained through practice",
+    freedom: "State of being unrestricted",
+    infrastructure: "Basic framework and systems",
+    robust: "Strong and effective",
+    global: "Worldwide or universal",
+    performance: "How well something functions",
+    real: "Actually existing or happening",
+    time: "Continuous progress of existence",
+    lightning: "Extremely fast",
+    fast: "Moving or operating quickly",
+    api: "Application Programming Interface",
+    access: "Ability to use or reach something",
   };
 
   return (
@@ -64,11 +87,11 @@ const Index = () => {
           </p>
           <div className="flex items-center justify-center gap-6">
             <Button className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform hover:scale-105 transition-all">
-              Start Building
+              {wrapWordsWithHoverCard("Start Building", definitions)}
               <ChevronRight className="ml-2 h-6 w-6" />
             </Button>
             <Button variant="outline" className="px-8 py-6 rounded-full font-black text-lg border-2 hover:bg-primary/5 text-white border-white/20">
-              View Documentation
+              {wrapWordsWithHoverCard("View Documentation", definitions)}
             </Button>
           </div>
         </motion.div>
@@ -79,13 +102,13 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary">
-              FEATURES
+              {wrapWordsWithHoverCard("FEATURES", definitions)}
             </span>
             <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Unlimited Possibilities
+              {wrapWordsWithHoverCard("Unlimited Possibilities", definitions)}
             </h2>
             <p className="text-xl font-extrabold text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Experience the freedom of unlimited RPC calls with our robust infrastructure.
+              {wrapWordsWithHoverCard("Experience the freedom of unlimited RPC calls with our robust infrastructure.", definitions)}
             </p>
           </div>
 
@@ -101,8 +124,12 @@ const Index = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
                   {feature.icon}
                 </div>
-                <h3 className="text-2xl font-black mb-4 text-white">{feature.title}</h3>
-                <p className="text-lg font-bold text-white/80">{feature.description}</p>
+                <h3 className="text-2xl font-black mb-4 text-white">
+                  {wrapWordsWithHoverCard(feature.title, definitions)}
+                </h3>
+                <p className="text-lg font-bold text-white/80">
+                  {wrapWordsWithHoverCard(feature.description, definitions)}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -119,10 +146,10 @@ const Index = () => {
             className="text-center"
           >
             <h2 className="text-5xl md:text-6xl font-black mb-12 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Start Building Today
+              {wrapWordsWithHoverCard("Start Building Today", definitions)}
             </h2>
             <Button className="px-12 py-8 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-xl shadow-2xl shadow-primary/20 transform hover:scale-105 transition-all">
-              Get API Access
+              {wrapWordsWithHoverCard("Get API Access", definitions)}
               <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
           </motion.div>
