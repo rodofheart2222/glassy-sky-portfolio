@@ -15,21 +15,21 @@ const Index = () => {
           className="container mx-auto px-4 text-center"
         >
           <span className="inline-block px-3 py-1 mb-4 text-sm font-extrabold rounded-full bg-primary/10 text-primary">
-            Introducing Innovation
+            Unlimited Power
           </span>
           <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">
-            Design with Purpose
+            Unlimited RPC Calls
           </h1>
           <p className="text-lg md:text-xl font-bold text-gray-600 mb-8 max-w-2xl mx-auto">
-            Create exceptional digital experiences with our minimalist approach to design and functionality.
+            Scale your applications with unlimited remote procedure calls. No throttling, no limits.
           </p>
           <div className="flex items-center justify-center gap-4">
             <Button className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-full font-bold">
-              Get Started
+              Start Building
               <ChevronRight className="ml-2 h-4 w-4" />
             </Button>
             <Button variant="outline" className="px-6 py-3 rounded-full font-bold">
-              Learn More
+              View Documentation
             </Button>
           </div>
         </motion.div>
@@ -42,9 +42,9 @@ const Index = () => {
             <span className="inline-block px-3 py-1 mb-4 text-sm font-extrabold rounded-full bg-secondary text-primary">
               Features
             </span>
-            <h2 className="text-4xl font-black mb-4">Crafted with Care</h2>
+            <h2 className="text-4xl font-black mb-4">Unlimited Possibilities</h2>
             <p className="text-gray-600 font-bold max-w-2xl mx-auto">
-              Every detail matters in creating a seamless user experience.
+              Experience the freedom of unlimited RPC calls with our robust infrastructure.
             </p>
           </div>
 
@@ -77,9 +77,9 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="text-4xl font-black mb-8">Ready to Get Started?</h2>
+            <h2 className="text-4xl font-black mb-8">Start Building Today</h2>
             <Button className="px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-full font-bold">
-              Contact Us
+              Get API Access
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </motion.div>
@@ -91,18 +91,18 @@ const Index = () => {
 
 const features = [
   {
-    title: "Minimalist Design",
-    description: "Clean and purposeful interfaces that focus on what matters most.",
+    title: "Unlimited Calls",
+    description: "Make as many RPC calls as you need without any restrictions or throttling.",
     icon: <Star className="w-6 h-6 text-primary" />,
   },
   {
-    title: "Smooth Animations",
-    description: "Carefully crafted transitions that enhance the user experience.",
+    title: "Global Infrastructure",
+    description: "Low-latency RPC calls powered by our worldwide distributed network.",
     icon: <Star className="w-6 h-6 text-primary" />,
   },
   {
-    title: "Responsive Layout",
-    description: "Perfectly adapted for every screen size and device.",
+    title: "Real-time Performance",
+    description: "Lightning-fast response times for all your RPC requests.",
     icon: <Star className="w-6 h-6 text-primary" />,
   },
 ];
