@@ -8,64 +8,6 @@ import {
 } from "@/components/ui/hover-card";
 
 const Index = () => {
-  const wrapWordsWithHoverCard = (text: string, definitions: Record<string, string>) => {
-    return text.split(' ').map((word, index) => {
-      const cleanWord = word.replace(/[.,!?]/, '');
-      const definition = definitions[cleanWord.toLowerCase()] || `This is the word "${cleanWord}"`;
-      return (
-        <span key={index} className="inline-block mx-1">
-          <HoverCard>
-            <HoverCardTrigger className="hover:text-primary/80 transition-colors">
-              {word}
-            </HoverCardTrigger>
-            <HoverCardContent className="glass-card word-hover-card">
-              <div className="flex flex-col gap-2">
-                <p>{definition}</p>
-                <div className="divider" />
-                <span className="footer">✨</span>
-              </div>
-            </HoverCardContent>
-          </HoverCard>
-        </span>
-      );
-    });
-  };
-
-  const definitions = {
-    unlimited: "No restrictions or limits on usage or capacity",
-    power: "Computational capability and processing strength",
-    remote: "Operations performed from a distance",
-    procedure: "A set of instructions or method to perform a task",
-    calls: "Requests made to execute specific functions",
-    scale: "Ability to grow and handle increased load",
-    applications: "Software programs designed for specific purposes",
-    throttling: "Intentional slowing down of processing speed",
-    limits: "Restrictions on usage or capacity",
-    no: "Absence of restrictions",
-    rpc: "Remote Procedure Call - a protocol for requesting a service",
-    your: "Belonging to or associated with the user",
-    with: "Accompanied by or using",
-    the: "Used to point to a specific item",
-    documentation: "Written materials that explain how to use a product",
-    start: "Begin a process or action",
-    building: "Creating or developing something",
-    today: "On the present day",
-    features: "Special characteristics or capabilities",
-    possibilities: "Potential outcomes or capabilities",
-    experience: "Knowledge or skill gained through practice",
-    freedom: "State of being unrestricted",
-    infrastructure: "Basic framework and systems",
-    robust: "Strong and effective",
-    global: "Worldwide or universal",
-    performance: "How well something functions",
-    real: "Actually existing or happening",
-    time: "Continuous progress of existence",
-    lightning: "Extremely fast",
-    fast: "Moving or operating quickly",
-    api: "Application Programming Interface",
-    access: "Ability to use or reach something",
-  };
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -77,21 +19,58 @@ const Index = () => {
           className="container mx-auto px-4 text-center"
         >
           <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary border-2 border-primary/20 shadow-lg shadow-primary/20">
-            {wrapWordsWithHoverCard("UNLIMITED POWER", definitions)}
+            <HoverCard>
+              <HoverCardTrigger className="hover:text-primary/80 transition-colors">
+                UNLIMITED POWER
+              </HoverCardTrigger>
+              <HoverCardContent className="glass-card">
+                <h4 className="font-bold mb-2">Unlimited Power</h4>
+                <p>Experience true unlimited power with our platform. No throttling, no limits on your API calls or processing capabilities.</p>
+              </HoverCardContent>
+            </HoverCard>
           </span>
           <h1 className="text-6xl md:text-8xl font-black mb-8 tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            {wrapWordsWithHoverCard("Unlimited RPC Calls", definitions)}
+            <HoverCard>
+              <HoverCardTrigger className="hover:text-primary/80 transition-colors">
+                Unlimited RPC Calls
+              </HoverCardTrigger>
+              <HoverCardContent className="glass-card">
+                <h4 className="font-bold mb-2">Remote Procedure Calls</h4>
+                <p>Make as many remote procedure calls as you need. Our infrastructure is built to handle massive scale without compromising on performance.</p>
+              </HoverCardContent>
+            </HoverCard>
           </h1>
           <p className="text-xl md:text-2xl font-extrabold text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-            {wrapWordsWithHoverCard("Scale your applications with unlimited remote procedure calls. No throttling, no limits", definitions)}
+            Scale your applications with{" "}
+            <HoverCard>
+              <HoverCardTrigger className="text-primary hover:text-primary/80 transition-colors">
+                unlimited remote procedure calls
+              </HoverCardTrigger>
+              <HoverCardContent className="glass-card">
+                <h4 className="font-bold mb-2">Scalability</h4>
+                <p>Our platform automatically scales with your needs. Whether you're handling hundreds or millions of calls, we've got you covered.</p>
+              </HoverCardContent>
+            </HoverCard>
+            .{" "}
+            <span className="text-primary">
+              <HoverCard>
+                <HoverCardTrigger className="hover:text-primary/80 transition-colors">
+                  No throttling, no limits
+                </HoverCardTrigger>
+                <HoverCardContent className="glass-card">
+                  <h4 className="font-bold mb-2">No Restrictions</h4>
+                  <p>Unlike other platforms, we don't impose artificial limits on your usage. Your applications can grow freely without worrying about hitting caps or paying overage fees.</p>
+                </HoverCardContent>
+              </HoverCard>
+            </span>
           </p>
           <div className="flex items-center justify-center gap-6">
             <Button className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform hover:scale-105 transition-all">
-              {wrapWordsWithHoverCard("Start Building", definitions)}
+              Start Building
               <ChevronRight className="ml-2 h-6 w-6" />
             </Button>
             <Button variant="outline" className="px-8 py-6 rounded-full font-black text-lg border-2 hover:bg-primary/5 text-white border-white/20">
-              {wrapWordsWithHoverCard("View Documentation", definitions)}
+              View Documentation
             </Button>
           </div>
         </motion.div>
@@ -102,13 +81,13 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary">
-              {wrapWordsWithHoverCard("FEATURES", definitions)}
+              FEATURES
             </span>
             <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {wrapWordsWithHoverCard("Unlimited Possibilities", definitions)}
+              Unlimited Possibilities
             </h2>
             <p className="text-xl font-extrabold text-white/90 max-w-3xl mx-auto leading-relaxed">
-              {wrapWordsWithHoverCard("Experience the freedom of unlimited RPC calls with our robust infrastructure.", definitions)}
+              Experience the freedom of unlimited RPC calls with our robust infrastructure.
             </p>
           </div>
 
@@ -124,12 +103,8 @@ const Index = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
                   {feature.icon}
                 </div>
-                <h3 className="text-2xl font-black mb-4 text-white">
-                  {wrapWordsWithHoverCard(feature.title, definitions)}
-                </h3>
-                <p className="text-lg font-bold text-white/80">
-                  {wrapWordsWithHoverCard(feature.description, definitions)}
-                </p>
+                <h3 className="text-2xl font-black mb-4 text-white">{feature.title}</h3>
+                <p className="text-lg font-bold text-white/80">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -146,10 +121,10 @@ const Index = () => {
             className="text-center"
           >
             <h2 className="text-5xl md:text-6xl font-black mb-12 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {wrapWordsWithHoverCard("Start Building Today", definitions)}
+              Start Building Today
             </h2>
             <Button className="px-12 py-8 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-xl shadow-2xl shadow-primary/20 transform hover:scale-105 transition-all">
-              {wrapWordsWithHoverCard("Get API Access", definitions)}
+              Get API Access
               <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
           </motion.div>
