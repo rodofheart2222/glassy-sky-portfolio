@@ -8,6 +8,41 @@ import {
 } from "@/components/ui/hover-card";
 
 const Index = () => {
+  const wrapWordsWithHoverCard = (text: string, definitions: Record<string, string>) => {
+    return text.split(' ').map((word, index) => {
+      const cleanWord = word.replace(/[.,!?]/, '');
+      if (definitions[cleanWord.toLowerCase()]) {
+        return (
+          <span key={index} className="inline-block mx-1">
+            <HoverCard>
+              <HoverCardTrigger className="hover:text-primary/80 transition-colors">
+                {word}
+              </HoverCardTrigger>
+              <HoverCardContent className="glass-card w-64 p-4 hover-card">
+                <p className="text-sm text-white/90">{definitions[cleanWord.toLowerCase()]}</p>
+              </HoverCardContent>
+            </HoverCard>
+          </span>
+        );
+      }
+      return <span key={index} className="inline-block mx-1">{word}</span>;
+    });
+  };
+
+  const definitions = {
+    unlimited: "No restrictions or limits on usage or capacity",
+    power: "Computational capability and processing strength",
+    remote: "Operations performed from a distance",
+    procedure: "A set of instructions or method to perform a task",
+    calls: "Requests made to execute specific functions",
+    scale: "Ability to grow and handle increased load",
+    applications: "Software programs designed for specific purposes",
+    throttling: "Intentional slowing down of processing speed",
+    limits: "Restrictions on usage or capacity",
+    no: "Absence of restrictions",
+    rpc: "Remote Procedure Call - a protocol for requesting a service",
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -19,50 +54,13 @@ const Index = () => {
           className="container mx-auto px-4 text-center"
         >
           <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary border-2 border-primary/20 shadow-lg shadow-primary/20">
-            <HoverCard>
-              <HoverCardTrigger className="hover:text-primary/80 transition-colors">
-                UNLIMITED POWER
-              </HoverCardTrigger>
-              <HoverCardContent className="glass-card">
-                <h4 className="font-bold mb-2">Unlimited Power</h4>
-                <p>Experience true unlimited power with our platform. No throttling, no limits on your API calls or processing capabilities.</p>
-              </HoverCardContent>
-            </HoverCard>
+            {wrapWordsWithHoverCard("UNLIMITED POWER", definitions)}
           </span>
           <h1 className="text-6xl md:text-8xl font-black mb-8 tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            <HoverCard>
-              <HoverCardTrigger className="hover:text-primary/80 transition-colors">
-                Unlimited RPC Calls
-              </HoverCardTrigger>
-              <HoverCardContent className="glass-card">
-                <h4 className="font-bold mb-2">Remote Procedure Calls</h4>
-                <p>Make as many remote procedure calls as you need. Our infrastructure is built to handle massive scale without compromising on performance.</p>
-              </HoverCardContent>
-            </HoverCard>
+            {wrapWordsWithHoverCard("Unlimited RPC Calls", definitions)}
           </h1>
           <p className="text-xl md:text-2xl font-extrabold text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Scale your applications with{" "}
-            <HoverCard>
-              <HoverCardTrigger className="text-primary hover:text-primary/80 transition-colors">
-                unlimited remote procedure calls
-              </HoverCardTrigger>
-              <HoverCardContent className="glass-card">
-                <h4 className="font-bold mb-2">Scalability</h4>
-                <p>Our platform automatically scales with your needs. Whether you're handling hundreds or millions of calls, we've got you covered.</p>
-              </HoverCardContent>
-            </HoverCard>
-            .{" "}
-            <span className="text-primary">
-              <HoverCard>
-                <HoverCardTrigger className="hover:text-primary/80 transition-colors">
-                  No throttling, no limits
-                </HoverCardTrigger>
-                <HoverCardContent className="glass-card">
-                  <h4 className="font-bold mb-2">No Restrictions</h4>
-                  <p>Unlike other platforms, we don't impose artificial limits on your usage. Your applications can grow freely without worrying about hitting caps or paying overage fees.</p>
-                </HoverCardContent>
-              </HoverCard>
-            </span>
+            {wrapWordsWithHoverCard("Scale your applications with unlimited remote procedure calls. No throttling, no limits", definitions)}
           </p>
           <div className="flex items-center justify-center gap-6">
             <Button className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform hover:scale-105 transition-all">
