@@ -13,22 +13,44 @@
   body {
     @apply antialiased;
     font-family: 'Inter', sans-serif;
-    background-color: #172838;
+    background-color: #0c1220;
+    animation: gradientAnimation 15s ease infinite;
+    background-size: 400% 400%;
     background-image: 
-      radial-gradient(at 47% 33%, hsl(0.00, 1%, 23%) 0, transparent 59%), 
-      radial-gradient(at 82% 65%, hsl(271.58, 37%, 42%) 0, transparent 55%);
+      radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(22, 83%, 39%, 1) 0, transparent 50%),
+      radial-gradient(at 50% 100%, hsla(242, 41%, 24%, 1) 0, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(343, 42%, 39%, 1) 0, transparent 50%);
   }
 }
 
 @layer components {
   .glass-card {
-    @apply backdrop-blur-lg bg-black/30 border border-white/20 rounded-2xl;
-    backdrop-filter: blur(16px) saturate(16%);
-    -webkit-backdrop-filter: blur(16px) saturate(16%);
+    @apply backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl;
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 1px 2px 0 rgba(0, 0, 0, 0.05),
+      inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
   }
   
   .hover-scale {
     @apply transition-transform duration-300 hover:scale-105;
+    box-shadow: 
+      0 10px 30px -5px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-scale:hover {
+    box-shadow: 
+      0 20px 40px -5px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
   }
   
   .text-gradient {
@@ -42,4 +64,16 @@
 
 .smooth-scroll {
   scroll-behavior: smooth;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
