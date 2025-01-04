@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, ArrowRight, Star } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const Index = () => {
   return (
@@ -14,14 +22,66 @@ const Index = () => {
           className="container mx-auto px-4 text-center"
         >
           <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary border-2 border-primary/20 shadow-lg shadow-primary/20">
-            UNLIMITED POWER
+            <Dialog>
+              <DialogTrigger className="hover:text-primary/80 transition-colors">
+                UNLIMITED POWER
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Unlimited Power</DialogTitle>
+                  <DialogDescription>
+                    Experience true unlimited power with our platform. No throttling, no limits on your API calls or processing capabilities.
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </span>
           <h1 className="text-6xl md:text-8xl font-black mb-8 tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Unlimited RPC Calls
+            <Dialog>
+              <DialogTrigger className="hover:text-primary/80 transition-colors">
+                Unlimited RPC Calls
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Remote Procedure Calls</DialogTitle>
+                  <DialogDescription>
+                    Make as many remote procedure calls as you need. Our infrastructure is built to handle massive scale without compromising on performance.
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </h1>
           <p className="text-xl md:text-2xl font-extrabold text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Scale your applications with unlimited remote procedure calls. 
-            <span className="text-primary">No throttling, no limits.</span>
+            Scale your applications with{" "}
+            <Dialog>
+              <DialogTrigger className="text-primary hover:text-primary/80 transition-colors">
+                unlimited remote procedure calls
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Scalability</DialogTitle>
+                  <DialogDescription>
+                    Our platform automatically scales with your needs. Whether you're handling hundreds or millions of calls, we've got you covered.
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+            .{" "}
+            <span className="text-primary">
+              <Dialog>
+                <DialogTrigger className="hover:text-primary/80 transition-colors">
+                  No throttling, no limits
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>No Restrictions</DialogTitle>
+                    <DialogDescription>
+                      Unlike other platforms, we don't impose artificial limits on your usage. Your applications can grow freely without worrying about hitting caps or paying overage fees.
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+            </span>
           </p>
           <div className="flex items-center justify-center gap-6">
             <Button className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform hover:scale-105 transition-all">
