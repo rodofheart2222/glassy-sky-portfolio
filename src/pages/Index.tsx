@@ -13,28 +13,29 @@ const Index = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4 text-center"
         >
-          <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-[#1EAEDB]/20 text-[#1EAEDB] border-2 border-[#1EAEDB]/20 shadow-lg shadow-[#1EAEDB]/20">
+          <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary border-2 border-primary/20 shadow-lg shadow-primary/20">
             UNLIMITED POWER
           </span>
-          <h1 className="text-6xl md:text-8xl font-black mb-8 tracking-tight bg-gradient-to-r from-[#1EAEDB] to-[#33C3F0] bg-clip-text text-transparent">
+          <h1 className="text-6xl md:text-8xl font-black mb-8 tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Unlimited RPC Calls
           </h1>
           <p className="text-xl md:text-2xl font-extrabold text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
             Scale your applications with unlimited remote procedure calls. 
-            <span className="text-[#1EAEDB]">No throttling, no limits.</span>
+            <span className="text-primary">No throttling, no limits.</span>
           </p>
           <div className="flex items-center justify-center gap-6">
-            <Button className="px-8 py-6 bg-[#1EAEDB] hover:bg-[#1EAEDB]/90 text-white rounded-full font-black text-lg shadow-xl shadow-[#1EAEDB]/20 transform hover:scale-105 transition-all">
+            <Button className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform hover:scale-105 transition-all">
               Start Building
               <ChevronRight className="ml-2 h-6 w-6" />
             </Button>
-            <Button variant="outline" className="px-8 py-6 rounded-full font-black text-lg border-2 hover:bg-[#1EAEDB]/5 text-white border-[#1EAEDB]/20">
+            <Button variant="outline" className="px-8 py-6 rounded-full font-black text-lg border-2 hover:bg-primary/5 text-white border-white/20">
               View Documentation
             </Button>
           </div>
         </motion.div>
       </section>
 
+      {/* Features Section */}
       <section className="py-32">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
@@ -69,6 +70,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* CTA Section */}
       <section className="py-32">
         <div className="container mx-auto px-4">
           <motion.div
@@ -95,17 +97,17 @@ const features = [
   {
     title: "Unlimited Calls",
     description: "Make as many RPC calls as you need without any restrictions or throttling.",
-    icon: <Star className="w-8 h-8 text-[#1EAEDB]" />,
+    icon: <Star className="w-8 h-8 text-primary" />,
   },
   {
     title: "Global Infrastructure",
     description: "Low-latency RPC calls powered by our worldwide distributed network.",
-    icon: <Star className="w-8 h-8 text-[#1EAEDB]" />,
+    icon: <Star className="w-8 h-8 text-primary" />,
   },
   {
     title: "Real-time Performance",
     description: "Lightning-fast response times for all your RPC requests.",
-    icon: <Star className="w-8 h-8 text-[#1EAEDB]" />,
+    icon: <Star className="w-8 h-8 text-primary" />,
   },
 ];
 
