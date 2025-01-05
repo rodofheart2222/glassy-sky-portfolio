@@ -27,7 +27,18 @@ const SolanaTransactions = () => {
           ],
         }),
       });
+      
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
       const data = await response.json();
+      console.log("Solana API Response:", data); // Debug log
+      
+      if (data.error) {
+        throw new Error(data.error.message);
+      }
+      
       return data.result;
     },
     refetchInterval: 10000, // Refetch every 10 seconds
@@ -39,6 +50,14 @@ const SolanaTransactions = () => {
         <Skeleton className="h-4 w-[250px]" />
         <Skeleton className="h-4 w-[200px]" />
         <Skeleton className="h-4 w-[250px]" />
+      </div>
+    );
+  }
+
+  if (!transactions || transactions.length === 0) {
+    return (
+      <div className="text-center py-8 text-gray-500">
+        No transactions found
       </div>
     );
   }
