@@ -24,19 +24,33 @@ const sections = [
 ];
 
 export const DocsSidebar = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navbarHeight = 64; // height of the fixed navbar
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
     <div className="w-64 bg-black/20 backdrop-blur-xl border-r border-white/10 p-6 hidden lg:block">
       <div className="sticky top-6">
         <h3 className="text-lg font-bold text-white mb-4">Documentation</h3>
         <nav className="space-y-2">
           {sections.map((section) => (
-            <a
+            <button
               key={section.id}
-              href={`#${section.id}`}
-              className="block text-white/80 hover:text-white transition-colors py-1"
+              onClick={() => scrollToSection(section.id)}
+              className="block w-full text-left text-white/80 hover:text-white transition-colors py-1 cursor-pointer"
             >
               {section.label}
-            </a>
+            </button>
           ))}
         </nav>
       </div>
