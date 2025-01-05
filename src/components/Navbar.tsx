@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, BookOpen } from "lucide-react";
 import { useState } from "react";
+import { Button } from "./ui/button";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,6 +19,15 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="flex space-x-8">
+            <Link to="/docs">
+              <Button
+                variant="ghost"
+                className="text-white hover:text-primary hover:bg-white/10"
+              >
+                <BookOpen className="mr-2 h-4 w-4" />
+                Docs
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -36,6 +46,14 @@ export const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 animate-in slide-in-from-top duration-200">
             <div className="flex flex-col space-y-4">
+              <Link 
+                to="/docs" 
+                className="text-white/80 hover:text-white transition-colors duration-200 flex items-center gap-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <BookOpen className="h-4 w-4" />
+                Docs
+              </Link>
             </div>
           </div>
         )}
