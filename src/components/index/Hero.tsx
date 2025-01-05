@@ -18,7 +18,7 @@ export const Hero = ({ setShowDepositDialog }: { setShowDepositDialog: (show: bo
         transition={{ duration: 0.8 }}
         className="container mx-auto px-4 text-center"
       >
-        <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-[#9b87f5]/20 text-[#9b87f5] border-2 border-[#9b87f5]/20 shadow-lg shadow-[#9b87f5]/20 hover:shadow-[#9b87f5]/30 transition-shadow">
+        <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary border-2 border-primary/20 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-shadow">
           <div className="flex items-center gap-2">
             <div className="relative">
               <div className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse"></div>
@@ -32,7 +32,7 @@ export const Hero = ({ setShowDepositDialog }: { setShowDepositDialog: (show: bo
             <span className="purple-gradient-text glow-text">
               {wrapWordsWithHoverCard("Unlimited", definitions)}
             </span>
-            <span className="text-white glow-text drop-shadow-[0_0_30px_rgba(155,135,245,0.5)]">
+            <span className="text-white glow-text drop-shadow-[0_0_30px_rgba(139,92,246,0.5)]">
               {wrapWordsWithHoverCard("RPC", definitions)}
             </span>
             <span className="purple-gradient-text glow-text">
@@ -45,7 +45,7 @@ export const Hero = ({ setShowDepositDialog }: { setShowDepositDialog: (show: bo
         </p>
         <div className="flex items-center justify-center gap-6">
           <Button 
-            className="px-8 py-6 border-2 border-[#9b87f5] bg-[#9b87f5]/10 hover:bg-[#9b87f5]/20 text-white rounded-full font-black text-lg shadow-xl shadow-[#9b87f5]/20 hover:shadow-[#9b87f5]/30 transform hover:scale-105 transition-all backdrop-blur-sm"
+            className="px-8 py-6 border-2 border-primary bg-primary/10 hover:bg-primary/20 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 hover:shadow-primary/30 transform hover:scale-105 transition-all backdrop-blur-sm"
             onClick={() => setShowDepositDialog(true)}
           >
             Start
