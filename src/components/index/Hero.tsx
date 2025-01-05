@@ -27,17 +27,19 @@ export const Hero = ({ setShowDepositDialog }: { setShowDepositDialog: (show: bo
             {wrapWordsWithHoverCard("UNLIMITED POWER", definitions)}
           </div>
         </span>
-        <h1 className="text-[12rem] leading-[0.9] font-black mb-8 tracking-tight flex flex-col">
-          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            {wrapWordsWithHoverCard("Unlimited", definitions)}
-          </span>
-          <span className="text-white">
-            {wrapWordsWithHoverCard("RPC", definitions)}
-          </span>
-          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            {wrapWordsWithHoverCard("Calls", definitions)}
-          </span>
-        </h1>
+        <div className="glass-effect-card p-8 mb-8">
+          <h1 className="text-[12rem] leading-[0.9] font-black tracking-tight flex flex-col">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              {wrapWordsWithHoverCard("Unlimited", definitions)}
+            </span>
+            <span className="text-white">
+              {wrapWordsWithHoverCard("RPC", definitions)}
+            </span>
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              {wrapWordsWithHoverCard("Calls", definitions)}
+            </span>
+          </h1>
+        </div>
         <p className="text-xl md:text-2xl font-extrabold text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
           {wrapWordsWithHoverCard("Scale your applications with unlimited remote procedure calls. No throttling, no limits", definitions)}
         </p>

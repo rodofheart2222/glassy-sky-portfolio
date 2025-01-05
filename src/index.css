@@ -43,6 +43,14 @@
     @apply p-3 min-w-[200px] shadow-xl;
     animation: cardAppear 0.2s ease-out;
   }
+
+  .glass-effect-card {
+    backdrop-filter: blur(25px) saturate(200%);
+    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
 }
 
 @keyframes cardAppear {
