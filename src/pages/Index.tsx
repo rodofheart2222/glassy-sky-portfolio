@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ArrowRight, Star, Copy } from "lucide-react";
+import { ChevronRight, Copy } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -125,7 +125,7 @@ const Index = () => {
       </section>
 
       <Dialog open={showDepositDialog} onOpenChange={setShowDepositDialog}>
-        <DialogContent className="glass-dialog sm:max-w-md border-0">
+        <DialogContent className="glass-dialog sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="text-white">Activate RPC Service</DialogTitle>
             <DialogDescription className="text-white/80">
@@ -152,23 +152,5 @@ const Index = () => {
     </div>
   );
 };
-
-const features = [
-  {
-    title: "Unlimited Calls",
-    description: "Make as many RPC calls as you need without any restrictions or throttling.",
-    icon: <Star className="w-8 h-8 text-primary" />,
-  },
-  {
-    title: "Global Infrastructure",
-    description: "Low-latency RPC calls powered by our worldwide distributed network.",
-    icon: <Star className="w-8 h-8 text-primary" />,
-  },
-  {
-    title: "Real-time Performance",
-    description: "Lightning-fast response times for all your RPC requests.",
-    icon: <Star className="w-8 h-8 text-primary" />,
-  },
-];
 
 export default Index;
