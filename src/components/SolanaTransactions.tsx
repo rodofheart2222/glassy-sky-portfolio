@@ -12,7 +12,7 @@ const SolanaTransactions = () => {
   const { data: transactions, isLoading } = useQuery({
     queryKey: ["solana-transactions"],
     queryFn: async () => {
-      const response = await fetch("https://api.mainnet-beta.solana.com", {
+      const response = await fetch("https://api.devnet.solana.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
