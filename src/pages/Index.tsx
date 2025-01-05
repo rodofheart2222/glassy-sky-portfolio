@@ -20,7 +20,7 @@ import { QRCodeSVG } from "qrcode.react";
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
   const { toast } = useToast();
-  const solanaAddress = "7eDz3qZuGC6hqQT7zXrS81BgBAGDpKHJtGQddwvs9wuc";
+  const solanaAddress = "83tf89CSaDyKfApAM3QbULiLLV3rvEdd5mem8XDiqUnk";
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText(solanaAddress);
