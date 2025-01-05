@@ -26,7 +26,7 @@ export const DocsSidebar = () => {
   };
 
   return (
-    <div className="w-64 bg-black/20 backdrop-blur-xl border-r border-white/10 p-6 hidden lg:block">
+    <div className="w-64 glass-card p-6 hidden lg:block">
       <div className="sticky top-6">
         <h3 className="text-lg font-bold text-white mb-4">Documentation</h3>
         <nav className="space-y-2">
