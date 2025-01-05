@@ -17,7 +17,7 @@ export const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="flex space-x-8">
             <Link to="/" className="text-white/80 hover:text-white transition-colors duration-200">
               Home
             </Link>
