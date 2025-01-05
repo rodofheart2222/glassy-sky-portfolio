@@ -64,7 +64,7 @@ const SolanaTransactions = () => {
   }
 
   return (
-    <div className="glass-card p-6 rounded-xl">
+    <div className="backdrop-blur-[25px] backdrop-saturate-[200%] bg-white/0 rounded-xl border border-white/[0.125] p-6">
       <Table>
         <TableHeader>
           <TableRow className="border-b border-white/10">
