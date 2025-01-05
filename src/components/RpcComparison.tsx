@@ -9,8 +9,8 @@ export const RpcComparison = () => {
     // Initialize with some data points
     const initialData = Array.from({ length: 20 }, (_, i) => ({
       time: i,
-      our: 20, // Our consistent 20ms
-      other: Math.floor(Math.random() * 50) + 100, // Random between 100-150ms
+      our: Math.floor(Math.random() * 50) + 100, // Random between 100-150ms
+      other: 20, // Other's consistent 20ms
     }));
     setData(initialData);
 
@@ -19,8 +19,8 @@ export const RpcComparison = () => {
       setData(prevData => {
         const newData = [...prevData.slice(1), {
           time: prevData[prevData.length - 1].time + 1,
-          our: 20,
-          other: Math.floor(Math.random() * 50) + 100,
+          our: Math.floor(Math.random() * 50) + 100,
+          other: 20,
         }];
         return newData;
       });
@@ -70,23 +70,23 @@ export const RpcComparison = () => {
             />
             <Area
               type="monotone"
-              dataKey="our"
-              stroke="#F97316"
-              fill="url(#ourGradient)"
-              name="Our RPC"
-            />
-            <Area
-              type="monotone"
               dataKey="other"
               stroke="#FFFFFF60"
               fill="url(#otherGradient)"
               name="Other Provider"
             />
+            <Area
+              type="monotone"
+              dataKey="our"
+              stroke="#F97316"
+              fill="url(#ourGradient)"
+              name="Our RPC"
+            />
           </AreaChart>
         </ResponsiveContainer>
       </div>
 
-      {/* Performance Metrics - Top Right (Our RPC) */}
+      {/* Performance Metrics - Top Right (Other Provider) */}
       <div className="absolute right-4 top-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -94,13 +94,13 @@ export const RpcComparison = () => {
           transition={{ duration: 0.5 }}
           className="glass-card p-4"
         >
-          <div className="text-[#F97316] font-bold">Our RPC</div>
-          <div className="text-white/80 text-sm">20ms Response Time</div>
-          <div className="text-white/80 text-sm">Unlimited Requests/sec</div>
+          <div className="text-white/60 font-bold">Other Provider</div>
+          <div className="text-white/60 text-sm">20ms Response Time</div>
+          <div className="text-white/60 text-sm">Limited to 100 req/sec</div>
         </motion.div>
       </div>
 
-      {/* Performance Metrics - Bottom Right (Other Provider) */}
+      {/* Performance Metrics - Bottom Right (Our RPC) */}
       <div className="absolute right-4 bottom-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -108,9 +108,9 @@ export const RpcComparison = () => {
           transition={{ duration: 0.5 }}
           className="glass-card p-4"
         >
-          <div className="text-white/60 font-bold">Other Provider</div>
-          <div className="text-white/60 text-sm">100ms+ Response Time</div>
-          <div className="text-white/60 text-sm">Limited to 100 req/sec</div>
+          <div className="text-[#F97316] font-bold">Our RPC</div>
+          <div className="text-white/80 text-sm">100ms+ Response Time</div>
+          <div className="text-white/80 text-sm">Unlimited Requests/sec</div>
         </motion.div>
       </div>
     </div>
