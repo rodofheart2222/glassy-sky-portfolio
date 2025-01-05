@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
+import { Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ArrowRight, Star, Copy, Sparkles, Heart } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -8,13 +9,14 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
+import CallToAction from "@/components/CallToAction";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
@@ -89,167 +91,24 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="container mx-auto px-4 text-center"
-        >
-          <motion.div
-            animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, 5, -5, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-            className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary border-2 border-primary/20 shadow-lg shadow-primary/20"
-          >
-            <Sparkles className="inline-block w-5 h-5 mr-2 animate-pulse" />
-            {wrapWordsWithHoverCard("UNLIMITED POWER", definitions)}
-            <Sparkles className="inline-block w-5 h-5 ml-2 animate-pulse" />
-          </motion.div>
-          
-          <h1 className="text-6xl md:text-8xl font-black mb-8 tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            {wrapWordsWithHoverCard("Unlimited RPC Calls", definitions)}
-          </h1>
-          
-          <p className="text-xl md:text-2xl font-extrabold text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-            {wrapWordsWithHoverCard("Scale your applications with unlimited remote procedure calls. No throttling, no limits", definitions)}
-          </p>
-          
-          <div className="flex items-center justify-center gap-6">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
-                className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform transition-all group"
-                onClick={() => setShowDepositDialog(true)}
-              >
-                {wrapWordsWithHoverCard("Start", definitions)}
-                <Heart className="ml-2 h-6 w-6 group-hover:text-pink-200 transition-colors" />
-              </Button>
-            </motion.div>
-            
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
-                variant="outline" 
-                className="px-8 py-6 rounded-full font-black text-lg border-2 hover:bg-white/10 text-white border-white/20 group"
-              >
-                {wrapWordsWithHoverCard("View Documentation", definitions)}
-                <ChevronRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* Floating elements animation */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          className="absolute top-1/4 right-1/4 text-primary/20"
-        >
-          <Star className="w-12 h-12" />
-        </motion.div>
-        
-        <motion.div
-          animate={{
-            y: [0, 20, 0],
-            rotate: [0, -360],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          className="absolute bottom-1/4 left-1/4 text-primary/20"
-        >
-          <Heart className="w-12 h-12" />
-        </motion.div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-32">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
-            <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary">
-              {wrapWordsWithHoverCard("FEATURES", definitions)}
-            </span>
-            <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {wrapWordsWithHoverCard("Unlimited Possibilities", definitions)}
-            </h2>
-            <p className="text-xl font-extrabold text-white/90 max-w-3xl mx-auto leading-relaxed">
-              {wrapWordsWithHoverCard("Experience the freedom of unlimited RPC calls with our robust infrastructure.", definitions)}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card p-8 hover-scale shadow-2xl"
-              >
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
-                  {feature.icon}
-                </div>
-                <h3 className="text-2xl font-black mb-4 text-white">
-                  {wrapWordsWithHoverCard(feature.title, definitions)}
-                </h3>
-                <p className="text-lg font-bold text-white/80">
-                  {wrapWordsWithHoverCard(feature.description, definitions)}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-32">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h2 className="text-5xl md:text-6xl font-black mb-12 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {wrapWordsWithHoverCard("Start Building Today", definitions)}
-            </h2>
-            <Button className="px-12 py-8 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-xl shadow-2xl shadow-primary/20 transform hover:scale-105 transition-all">
-              {wrapWordsWithHoverCard("Get API Access", definitions)}
-              <ArrowRight className="ml-3 h-6 w-6" />
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+      <Hero 
+        onGetStarted={() => setShowDepositDialog(true)}
+        wrapWordsWithHoverCard={wrapWordsWithHoverCard}
+        definitions={definitions}
+      />
+      <Features 
+        wrapWordsWithHoverCard={wrapWordsWithHoverCard}
+        definitions={definitions}
+      />
+      <CallToAction 
+        wrapWordsWithHoverCard={wrapWordsWithHoverCard}
+        definitions={definitions}
+      />
 
       <Dialog open={showDepositDialog} onOpenChange={setShowDepositDialog}>
         <DialogContent className="glass-card sm:max-w-md border-0 bg-black/30">
           <DialogHeader>
-            <DialogTitle className="text-white flex items-center justify-center gap-2">
-              <Sparkles className="w-5 h-5 text-primary animate-pulse" />
-              Activate RPC Service
-              <Sparkles className="w-5 h-5 text-primary animate-pulse" />
-            </DialogTitle>
+            <DialogTitle className="text-white">Activate RPC Service</DialogTitle>
             <DialogDescription className="text-white/80">
               Get unlimited RPC calls for just $100
             </DialogDescription>
@@ -259,45 +118,20 @@ const Index = () => {
             <Button
               type="button"
               variant="secondary"
-              className="px-3 hover:bg-white/10 group"
+              className="px-3 hover:bg-white/10"
               onClick={handleCopyAddress}
             >
-              <Copy className="h-4 w-4 group-hover:scale-110 transition-transform" />
+              <Copy className="h-4 w-4" />
               <span className="sr-only">Copy</span>
             </Button>
           </div>
           <DialogDescription className="text-center text-sm text-white/60">
             Your RPC service will be activated automatically after payment is confirmed.
-            <motion.div
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="mt-2"
-            >
-              <Heart className="w-4 h-4 inline-block text-primary" />
-            </motion.div>
           </DialogDescription>
         </DialogContent>
       </Dialog>
     </div>
   );
 };
-
-const features = [
-  {
-    title: "Unlimited Calls",
-    description: "Make as many RPC calls as you need without any restrictions or throttling.",
-    icon: <Star className="w-8 h-8 text-primary" />,
-  },
-  {
-    title: "Global Infrastructure",
-    description: "Low-latency RPC calls powered by our worldwide distributed network.",
-    icon: <Star className="w-8 h-8 text-primary" />,
-  },
-  {
-    title: "Real-time Performance",
-    description: "Lightning-fast response times for all your RPC requests.",
-    icon: <Star className="w-8 h-8 text-primary" />,
-  },
-];
 
 export default Index;
