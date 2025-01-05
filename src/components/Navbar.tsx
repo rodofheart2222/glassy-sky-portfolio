@@ -18,21 +18,6 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="flex space-x-8">
-            <Link to="/" className="text-white/80 hover:text-white transition-colors duration-200">
-              Home
-            </Link>
-            <Link to="/introduction" className="text-white/80 hover:text-white transition-colors duration-200">
-              Introduction
-            </Link>
-            <Link to="/api-reference" className="text-white/80 hover:text-white transition-colors duration-200">
-              API Reference
-            </Link>
-            <Link to="/faq" className="text-white/80 hover:text-white transition-colors duration-200">
-              FAQ
-            </Link>
-            <Link to="/support" className="text-white/80 hover:text-white transition-colors duration-200">
-              Support
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -51,41 +36,6 @@ export const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 animate-in slide-in-from-top duration-200">
             <div className="flex flex-col space-y-4">
-              <Link 
-                to="/" 
-                className="text-white/80 hover:text-white transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link 
-                to="/introduction" 
-                className="text-white/80 hover:text-white transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Introduction
-              </Link>
-              <Link 
-                to="/api-reference" 
-                className="text-white/80 hover:text-white transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                API Reference
-              </Link>
-              <Link 
-                to="/faq" 
-                className="text-white/80 hover:text-white transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                FAQ
-              </Link>
-              <Link 
-                to="/support" 
-                className="text-white/80 hover:text-white transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Support
-              </Link>
             </div>
           </div>
         )}
