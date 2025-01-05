@@ -1,3 +1,5 @@
+import { CodeBlock } from "../../CodeBlock";
+
 export const WebSocketConnections = () => {
   return (
     <div>
@@ -13,9 +15,8 @@ export const WebSocketConnections = () => {
       </ol>
 
       <h4 className="text-xl font-bold mt-4 mb-2">JavaScript Example:</h4>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`const socket = new WebSocket('wss://rpc.your-custom-endpoint.example.com/ws');
+      <CodeBlock>
+{`const socket = new WebSocket('wss://rpc.your-custom-endpoint.example.com/ws');
 
 socket.onopen = () => {
   console.log('WebSocket connection established.');
@@ -42,8 +43,7 @@ socket.onclose = () => {
 socket.onerror = (error) => {
   console.error('WebSocket error:', error);
 };`}
-        </code>
-      </pre>
+      </CodeBlock>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Sending RPC Messages:</h4>
       <p>Use the same JSON-RPC structure as HTTP POST for sending messages over WebSockets.</p>
