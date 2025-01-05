@@ -23,12 +23,20 @@ export const Navbar = () => {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo/Brand */}
+          {/* Solana Logo in Glass Card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
+            className="flex items-center"
           >
+            <div className="glass-card p-2 rounded-lg mr-4">
+              <img 
+                src="/solana-logo.png" 
+                alt="Solana Logo" 
+                className="h-8 w-8"
+              />
+            </div>
             <Link to="/" className="text-white text-xl font-bold hover:text-primary transition-colors duration-200">
               RPC Documentation
             </Link>
