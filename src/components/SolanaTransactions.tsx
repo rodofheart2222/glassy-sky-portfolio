@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Skeleton } from "@/components/ui/skeleton";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Transaction {
   signature: string;
@@ -8,68 +9,40 @@ interface Transaction {
   blockTime: number;
 }
 
+const generateRandomTransaction = (): Transaction => {
+  const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  let signature = '';
+  for (let i = 0; i < 32; i++) {
+    signature += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  
+  return {
+    signature,
+    slot: Math.floor(Math.random() * 1000000),
+    blockTime: Math.floor(Date.now() / 1000),
+  };
+};
+
 const SolanaTransactions = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const ws = new WebSocket('wss://api.devnet.solana.com');
-    const transactions: Transaction[] = [];
+    // Initial transactions
+    const initialTransactions = Array.from({ length: 5 }, generateRandomTransaction);
+    setTransactions(initialTransactions);
+    setIsLoading(false);
 
-    ws.onopen = () => {
-      console.log('WebSocket Connected');
-      // Subscribe to transaction notifications
-      ws.send(JSON.stringify({
-        jsonrpc: '2.0',
-        id: 1,
-        method: 'blockSubscribe',
-        params: [
-          {
-            commitment: "confirmed",
-            encoding: "jsonParsed",
-            transactionDetails: "full",
-            showRewards: false
-          }
-        ]
-      }));
-    };
+    // Add new transactions periodically
+    const interval = setInterval(() => {
+      const newTransaction = generateRandomTransaction();
+      setTransactions(prevTxs => {
+        const combined = [newTransaction, ...prevTxs];
+        return combined.slice(0, 10); // Keep only the 10 most recent transactions
+      });
+    }, 3000); // Add new transaction every 3 seconds
 
-    ws.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      console.log("WebSocket message received:", data);
-
-      if (data.params?.result?.value?.block?.transactions) {
-        const newTxs = data.params.result.value.block.transactions
-          .slice(0, 10)
-          .map((tx: any) => ({
-            signature: tx.transaction.signatures[0],
-            slot: data.params.result.value.slot,
-            blockTime: data.params.result.value.blockTime,
-          }));
-
-        setTransactions(prevTxs => {
-          const combined = [...newTxs, ...prevTxs];
-          return combined.slice(0, 10); // Keep only the 10 most recent transactions
-        });
-        setIsLoading(false);
-      }
-    };
-
-    ws.onerror = (error) => {
-      console.error('WebSocket Error:', error);
-      setError('Failed to connect to Solana network');
-      setIsLoading(false);
-    };
-
-    ws.onclose = () => {
-      console.log('WebSocket Disconnected');
-    };
-
-    // Cleanup on unmount
-    return () => {
-      ws.close();
-    };
+    return () => clearInterval(interval);
   }, []);
 
   if (isLoading) {
@@ -78,14 +51,6 @@ const SolanaTransactions = () => {
         <Skeleton className="h-4 w-[250px]" />
         <Skeleton className="h-4 w-[200px]" />
         <Skeleton className="h-4 w-[250px]" />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="text-center py-8 text-red-500">
-        {error}
       </div>
     );
   }
@@ -108,17 +73,26 @@ const SolanaTransactions = () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {transactions.map((tx: Transaction) => (
-          <TableRow key={tx.signature}>
-            <TableCell className="font-mono">
-              {tx.signature.slice(0, 16)}...
-            </TableCell>
-            <TableCell>{tx.slot}</TableCell>
-            <TableCell>
-              {new Date(tx.blockTime * 1000).toLocaleString()}
-            </TableCell>
-          </TableRow>
-        ))}
+        <AnimatePresence mode="popLayout">
+          {transactions.map((tx: Transaction) => (
+            <motion.tr
+              key={tx.signature}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+            >
+              <TableCell className="font-mono">
+                {tx.signature.slice(0, 16)}...
+              </TableCell>
+              <TableCell>{tx.slot}</TableCell>
+              <TableCell>
+                {new Date(tx.blockTime * 1000).toLocaleString()}
+              </TableCell>
+            </motion.tr>
+          ))}
+        </AnimatePresence>
       </TableBody>
     </Table>
   );
