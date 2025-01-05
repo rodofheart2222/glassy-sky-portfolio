@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Copy, ArrowRight, ArrowLeft, DollarSign } from "lucide-react";
+import { ChevronRight, Copy, ArrowRight, Zap, Activity } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -125,7 +125,7 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* MEV Bot Illustration Section */}
+      {/* RPC Performance Comparison Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
@@ -134,9 +134,9 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="glass-card p-8 relative"
           >
-            <h2 className="text-4xl font-black mb-8 text-gradient">How MEV Bots Generate Profit</h2>
+            <h2 className="text-4xl font-black mb-8 text-gradient">Superior RPC Performance</h2>
             
-            {/* Transaction Flow Illustration */}
+            {/* Performance Comparison */}
             <div className="flex items-center justify-between mb-12 relative">
               <motion.div 
                 initial={{ x: -50, opacity: 0 }}
@@ -144,8 +144,12 @@ const Index = () => {
                 transition={{ duration: 0.5 }}
                 className="glass-card p-6 w-64 text-center"
               >
-                <h3 className="text-xl font-bold text-white mb-2">Transaction Pool</h3>
-                <p className="text-white/80">Monitoring pending transactions</p>
+                <h3 className="text-xl font-bold text-white mb-2">Other RPCs</h3>
+                <div className="flex flex-col items-center gap-2">
+                  <Activity className="w-6 h-6 text-[#0EA5E9]" />
+                  <p className="text-[#0EA5E9]/80">Limited Throughput</p>
+                  <p className="text-white/60 text-sm">500-1000 req/s</p>
+                </div>
               </motion.div>
 
               <motion.div
@@ -161,32 +165,16 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="glass-card p-6 w-64 text-center border-[#F97316]/30"
               >
-                <h3 className="text-xl font-bold text-white mb-2">MEV Bot</h3>
-                <p className="text-white/80">Analyzing profitable opportunities</p>
-              </motion.div>
-
-              <motion.div
-                animate={{ x: [-10, 10, -10] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-              >
-                <ArrowRight className="w-8 h-8 text-[#F97316]" />
-              </motion.div>
-
-              <motion.div 
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="glass-card p-6 w-64 text-center"
-              >
-                <h3 className="text-xl font-bold text-white mb-2">Profit</h3>
-                <div className="flex items-center justify-center gap-2">
-                  <DollarSign className="w-6 h-6 text-[#4ADE80]" />
-                  <span className="text-[#4ADE80] font-bold">+0.5 SOL</span>
+                <h3 className="text-xl font-bold text-white mb-2">Our RPC</h3>
+                <div className="flex flex-col items-center gap-2">
+                  <Zap className="w-6 h-6 text-[#F97316]" />
+                  <p className="text-[#F97316]">Unlimited Throughput</p>
+                  <p className="text-white/60 text-sm">No Rate Limits</p>
                 </div>
               </motion.div>
             </div>
 
-            {/* Profit Metrics */}
+            {/* Performance Metrics */}
             <div className="grid grid-cols-3 gap-6">
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -194,8 +182,8 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 className="glass-card p-6 text-center"
               >
-                <h4 className="text-lg font-bold text-white mb-2">Average Profit/Trade</h4>
-                <p className="text-[#4ADE80] text-2xl font-black">0.1-0.5 SOL</p>
+                <h4 className="text-lg font-bold text-white mb-2">Response Time</h4>
+                <p className="text-[#F97316] text-2xl font-black">{"<"}100ms</p>
               </motion.div>
 
               <motion.div 
@@ -204,8 +192,8 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.7 }}
                 className="glass-card p-6 text-center"
               >
-                <h4 className="text-lg font-bold text-white mb-2">Success Rate</h4>
-                <p className="text-[#4ADE80] text-2xl font-black">95%</p>
+                <h4 className="text-lg font-bold text-white mb-2">Uptime</h4>
+                <p className="text-[#F97316] text-2xl font-black">99.99%</p>
               </motion.div>
 
               <motion.div 
@@ -214,14 +202,15 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="glass-card p-6 text-center"
               >
-                <h4 className="text-lg font-bold text-white mb-2">Daily Transactions</h4>
-                <p className="text-[#4ADE80] text-2xl font-black">50-100</p>
+                <h4 className="text-lg font-bold text-white mb-2">Request Limit</h4>
+                <p className="text-[#F97316] text-2xl font-black">∞</p>
               </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
 
+      {/* Dialog Section */}
       <Dialog open={showDepositDialog} onOpenChange={setShowDepositDialog}>
         <DialogContent className="glass-dialog sm:max-w-md dialog-content">
           <DialogHeader>
