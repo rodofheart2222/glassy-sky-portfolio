@@ -30,7 +30,7 @@ export const GettingStarted = () => {
         <div>
           <h3 className="text-2xl font-bold mb-4">Obtaining Your Custom Endpoint</h3>
           <ol className="list-decimal pl-6 space-y-2">
-            <li><strong>Join Our Discord Server</strong>: If you haven't already, join our <a href="https://discord.gg/example" className="text-blue-400 hover:text-blue-300 underline transition-colors">Discord Server</a> where the admin team manages RPC endpoint allocations.</li>
+            <li><strong>Join Our Discord Server</strong>: If you haven't already, join our <a href="https://discord.gg/GA8Nv3N3" className="text-blue-400 hover:text-blue-300 underline transition-colors">Discord Server</a> where the admin team manages RPC endpoint allocations.</li>
             <li><strong>Request a Custom Endpoint</strong>: Navigate to the appropriate channel (e.g., #rpc-requests) and send a request for a custom RPC endpoint.</li>
             <li><strong>Receive Your Endpoint</strong>: An admin will provide you with a unique custom endpoint tailored to your needs.</li>
             <li><strong>Secure Your Endpoint</strong>:
