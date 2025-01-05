@@ -45,8 +45,6 @@ const Index = () => {
     });
   };
 
-  // ... keep existing code (features array and other constants)
-
   return (
     <div className="min-h-screen">
       <HeroSection onStartClick={() => setShowDepositDialog(true)} />
@@ -164,13 +162,16 @@ const Index = () => {
             <DialogDescription className="text-center text-sm text-white/60">
               Your RPC service will be activated automatically after payment is confirmed.
             </DialogDescription>
-            <Button
-              variant="secondary"
-              className="bg-white text-black hover:bg-white/90 text-xs px-3 py-1 h-7"
-              onClick={() => window.open('https://discord.gg/NNzKMdGn', '_blank')}
-            >
-              Discord
-            </Button>
+            <div className="flex items-center gap-2 text-white/60 text-xs">
+              <span>In case of any problem, reach out to us on</span>
+              <Button
+                variant="secondary"
+                className="bg-white text-black hover:bg-white/90 text-xs px-3 py-1 h-7"
+                onClick={() => window.open('https://discord.gg/NNzKMdGn', '_blank')}
+              >
+                Discord
+              </Button>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
