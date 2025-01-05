@@ -53,9 +53,9 @@ const Index = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="glass-card p-2 rounded-lg hover:scale-105 transition-transform duration-200"
+          className="glass-card p-2 rounded-lg hover:scale-105 transition-transform duration-200 w-16 h-16 flex items-center justify-center"
         >
-          <img src="/solana-logo.svg" alt="Solana Logo" className="w-24 h-auto" />
+          <img src="/solana-logo.svg" alt="Solana Logo" className="w-12 h-12 object-contain" />
         </motion.div>
       </div>
 
