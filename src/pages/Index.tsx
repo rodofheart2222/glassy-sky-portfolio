@@ -47,6 +47,17 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <div className="absolute top-4 right-4">
+        <Button
+          variant="secondary"
+          size="sm"
+          className="bg-white text-black hover:bg-white/90"
+          onClick={() => window.open('https://discord.gg/NNzKMdGn', '_blank')}
+        >
+          Discord
+        </Button>
+      </div>
+
       <HeroSection onStartClick={() => setShowDepositDialog(true)} />
       
       {/* Features Section */}
