@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Menu, X, BookOpen, Github, MessageCircle } from "lucide-react";
+import { Menu, X, BookOpen, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -60,16 +60,6 @@ export const Navbar = () => {
                 Discord
               </Button>
             </a>
-
-            <a href="https://github.com/example/rpc-docs" target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="ghost"
-                className="text-white hover:text-primary hover:bg-white/10"
-              >
-                <Github className="mr-2 h-4 w-4" />
-                GitHub
-              </Button>
-            </a>
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -115,17 +105,6 @@ export const Navbar = () => {
                 >
                   <MessageCircle className="h-4 w-4" />
                   Discord
-                </a>
-
-                <a 
-                  href="https://github.com/example/rpc-docs" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white/80 hover:text-white transition-colors duration-200 flex items-center gap-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Github className="h-4 w-4" />
-                  GitHub
                 </a>
               </div>
             </motion.div>
