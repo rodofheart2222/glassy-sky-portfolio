@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { CodeBlock } from "../../CodeBlock";
 
 export const GetAccountInfo = () => {
   return (
@@ -17,21 +18,18 @@ export const GetAccountInfo = () => {
       </ol>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Request Example:</h4>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`{
+      <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "id": 1,
   "method": "getAccountInfo",
   "params": ["<ACCOUNT_ADDRESS>", { "encoding": "jsonParsed" }]
 }`}
-        </code>
-      </pre>
+      </CodeBlock>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Response Example:</h4>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`{
+      <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "result": {
     "context": {
@@ -45,16 +43,14 @@ export const GetAccountInfo = () => {
   },
   "id": 1
 }`}
-        </code>
-      </pre>
+      </CodeBlock>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Error Responses:</h4>
       <ul className="list-disc pl-6 space-y-2">
         <li>
           <strong>Invalid Account Address:</strong>
-          <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-            <code>
-              {`{
+          <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "error": {
     "code": -32602,
@@ -63,14 +59,12 @@ export const GetAccountInfo = () => {
   },
   "id": 1
 }`}
-            </code>
-          </pre>
+          </CodeBlock>
         </li>
         <li>
           <strong>Server Error:</strong>
-          <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-            <code>
-              {`{
+          <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "error": {
     "code": -32603,
@@ -79,8 +73,7 @@ export const GetAccountInfo = () => {
   },
   "id": 1
 }`}
-            </code>
-          </pre>
+          </CodeBlock>
         </li>
       </ul>
     </div>

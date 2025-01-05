@@ -1,3 +1,5 @@
+import { CodeBlock } from "../../CodeBlock";
+
 export const ImplementingRetryLogic = () => {
   return (
     <div>
@@ -21,9 +23,8 @@ export const ImplementingRetryLogic = () => {
       </ol>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Example: Retry Logic in JavaScript</h4>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`const maxRetries = 5;
+      <CodeBlock>
+{`const maxRetries = 5;
 let attempt = 0;
 
 function makeRequest() {
@@ -64,8 +65,7 @@ function makeRequest() {
 }
 
 makeRequest();`}
-        </code>
-      </pre>
+      </CodeBlock>
     </div>
   );
 };

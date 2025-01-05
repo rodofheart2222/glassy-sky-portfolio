@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { CodeBlock } from "../../CodeBlock";
 
 export const Subscribe = () => {
   return (
@@ -17,32 +18,27 @@ export const Subscribe = () => {
       </ol>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Subscription Request Example:</h4>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`{
+      <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "id": 3,
   "method": "subscribe",
   "params": ["accountChange", { "account": "<ACCOUNT_ADDRESS>", "encoding": "jsonParsed" }]
 }`}
-        </code>
-      </pre>
+      </CodeBlock>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Subscription Response Example:</h4>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`{
+      <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "result": "subscription_id_12345",
   "id": 3
 }`}
-        </code>
-      </pre>
+      </CodeBlock>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Notification Example:</h4>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`{
+      <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "method": "accountChange",
   "params": {
@@ -54,16 +50,14 @@ export const Subscribe = () => {
     }
   }
 }`}
-        </code>
-      </pre>
+      </CodeBlock>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Error Responses:</h4>
       <ul className="list-disc pl-6 space-y-2">
         <li>
           <strong>Unsupported Event Type:</strong>
-          <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-            <code>
-              {`{
+          <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "error": {
     "code": -32601,
@@ -72,14 +66,12 @@ export const Subscribe = () => {
   },
   "id": 3
 }`}
-            </code>
-          </pre>
+          </CodeBlock>
         </li>
         <li>
           <strong>Missing Parameters:</strong>
-          <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-            <code>
-              {`{
+          <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "error": {
     "code": -32602,
@@ -88,8 +80,7 @@ export const Subscribe = () => {
   },
   "id": 3
 }`}
-            </code>
-          </pre>
+          </CodeBlock>
         </li>
       </ul>
     </div>
