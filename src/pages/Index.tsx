@@ -55,7 +55,7 @@ const Index = () => {
           transition={{ duration: 0.5 }}
           className="glass-card p-2 rounded-lg hover:scale-105 transition-transform duration-200 w-16 h-16 flex items-center justify-center"
         >
-          <img src="/solana-logo-dark.png" alt="Solana Logo" className="w-12 h-12 object-contain" />
+          <img src="/lovable-uploads/ccc551dd-d5c7-42d0-a92f-f744f6eeb964.png" alt="Solana Logo" className="w-12 h-12 object-contain" />
         </motion.div>
       </div>
 
