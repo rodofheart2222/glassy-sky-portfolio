@@ -166,7 +166,7 @@ const Index = () => {
             </DialogDescription>
             <Button
               variant="secondary"
-              className="bg-white text-black hover:bg-white/90"
+              className="bg-white text-black hover:bg-white/90 text-xs px-3 py-1 h-7"
               onClick={() => window.open('https://discord.gg/NNzKMdGn', '_blank')}
             >
               Discord
