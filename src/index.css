@@ -11,20 +11,14 @@
   }
 
   body {
-    @apply antialiased;
+    @apply bg-[#F7F7F7] text-[#1D1D1F] antialiased;
     font-family: 'Inter', sans-serif;
-    background-color: #172838;
-    background-image: 
-      radial-gradient(at 47% 33%, hsl(0.00, 1%, 23%) 0, transparent 59%), 
-      radial-gradient(at 82% 65%, hsl(271.58, 37%, 42%) 0, transparent 55%);
   }
 }
 
 @layer components {
   .glass-card {
-    @apply backdrop-blur-lg bg-black/30 border border-white/20 rounded-2xl;
-    backdrop-filter: blur(16px) saturate(16%);
-    -webkit-backdrop-filter: blur(16px) saturate(16%);
+    @apply backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl;
   }
   
   .hover-scale {
@@ -33,26 +27,6 @@
   
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
-  }
-
-  .hover-card {
-    @apply animate-in zoom-in-50 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95;
-  }
-
-  .word-hover-card {
-    @apply p-3 min-w-[200px] shadow-xl;
-    animation: cardAppear 0.2s ease-out;
-  }
-}
-
-@keyframes cardAppear {
-  from {
-    opacity: 0;
-    transform: translateY(5px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
   }
 }
 
