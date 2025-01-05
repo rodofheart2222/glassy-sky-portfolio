@@ -48,53 +48,55 @@ const SolanaTransactions = () => {
   if (isLoading) {
     return (
       <div className="space-y-3">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
-        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[250px] bg-white/5" />
+        <Skeleton className="h-4 w-[200px] bg-white/5" />
+        <Skeleton className="h-4 w-[250px] bg-white/5" />
       </div>
     );
   }
 
   if (!transactions || transactions.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-500">
+      <div className="text-center py-8 text-white/60">
         No transactions found
       </div>
     );
   }
 
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Signature</TableHead>
-          <TableHead>Slot</TableHead>
-          <TableHead>Time</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        <AnimatePresence mode="popLayout">
-          {transactions.map((tx: Transaction) => (
-            <motion.tr
-              key={tx.signature}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
-              className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
-            >
-              <TableCell className="font-mono">
-                {tx.signature.slice(0, 16)}...
-              </TableCell>
-              <TableCell>{tx.slot}</TableCell>
-              <TableCell>
-                {new Date(tx.blockTime * 1000).toLocaleString()}
-              </TableCell>
-            </motion.tr>
-          ))}
-        </AnimatePresence>
-      </TableBody>
-    </Table>
+    <div className="glass-card p-6 rounded-xl">
+      <Table>
+        <TableHeader>
+          <TableRow className="border-b border-white/10">
+            <TableHead className="text-white/80">Signature</TableHead>
+            <TableHead className="text-white/80">Slot</TableHead>
+            <TableHead className="text-white/80">Time</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <AnimatePresence mode="popLayout">
+            {transactions.map((tx: Transaction) => (
+              <motion.tr
+                key={tx.signature}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="border-b border-white/5 text-white/90 hover:bg-white/5 transition-colors"
+              >
+                <TableCell className="font-mono">
+                  {tx.signature.slice(0, 16)}...
+                </TableCell>
+                <TableCell>{tx.slot.toLocaleString()}</TableCell>
+                <TableCell>
+                  {new Date(tx.blockTime * 1000).toLocaleString()}
+                </TableCell>
+              </motion.tr>
+            ))}
+          </AnimatePresence>
+        </TableBody>
+      </Table>
+    </div>
   );
 };
 
