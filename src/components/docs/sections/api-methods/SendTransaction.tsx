@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { CodeBlock } from "../../CodeBlock";
 
 export const SendTransaction = () => {
   return (
@@ -22,35 +23,30 @@ export const SendTransaction = () => {
       </ol>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Request Example:</h4>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`{
+      <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "id": 2,
   "method": "sendTransaction",
   "params": ["<SIGNED_TRANSACTION>", { "skipPreflight": false, "preflightCommitment": "confirmed" }]
 }`}
-        </code>
-      </pre>
+      </CodeBlock>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Response Example:</h4>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`{
+      <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "result": "<TRANSACTION_SIGNATURE>",
   "id": 2
 }`}
-        </code>
-      </pre>
+      </CodeBlock>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Error Responses:</h4>
       <ul className="list-disc pl-6 space-y-2">
         <li>
           <strong>Invalid Transaction Format:</strong>
-          <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-            <code>
-              {`{
+          <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "error": {
     "code": -32602,
@@ -59,14 +55,12 @@ export const SendTransaction = () => {
   },
   "id": 2
 }`}
-            </code>
-          </pre>
+          </CodeBlock>
         </li>
         <li>
           <strong>Insufficient Funds:</strong>
-          <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-            <code>
-              {`{
+          <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "error": {
     "code": -32002,
@@ -75,8 +69,7 @@ export const SendTransaction = () => {
   },
   "id": 2
 }`}
-            </code>
-          </pre>
+          </CodeBlock>
         </li>
       </ul>
     </div>
