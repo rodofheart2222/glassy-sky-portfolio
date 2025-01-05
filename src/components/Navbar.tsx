@@ -19,22 +19,6 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* Sticky Solana Logo */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="fixed top-4 left-4 z-50"
-      >
-        <div className="glass-card p-2 rounded-lg hover:scale-105 transition-transform duration-300">
-          <img 
-            src="/solana-logo.png" 
-            alt="Solana Logo" 
-            className="h-8 w-8"
-          />
-        </div>
-      </motion.div>
-
       <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled ? "glass-card" : "bg-transparent"
       }`}>
@@ -45,7 +29,7 @@ export const Navbar = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center ml-16" // Added margin to account for the logo
+              className="flex items-center"
             >
               <Link to="/" className="text-white text-xl font-bold hover:text-primary transition-colors duration-200">
                 RPC Documentation
