@@ -20,11 +20,8 @@ const SolanaTransactions = () => {
         body: JSON.stringify({
           jsonrpc: "2.0",
           id: 1,
-          method: "getSignaturesForAddress",
-          params: [
-            "83tf89CSaDyKfApAM3QbULiLLV3rvEdd5mem8XDiqUnk",
-            { limit: 10 },
-          ],
+          method: "getRecentBlockhash",
+          params: [],
         }),
       });
       
@@ -39,7 +36,44 @@ const SolanaTransactions = () => {
         throw new Error(data.error.message);
       }
       
-      return data.result;
+      // Get recent block
+      const blockHash = data.result.value.blockhash;
+      
+      // Now fetch recent transactions
+      const txResponse = await fetch("https://api.devnet.solana.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          jsonrpc: "2.0",
+          id: 1,
+          method: "getBlock",
+          params: [
+            data.result.value.lastValidBlockHeight,
+            {
+              encoding: "json",
+              transactionDetails: "full",
+              maxSupportedTransactionVersion: 0,
+            },
+          ],
+        }),
+      });
+
+      const txData = await txResponse.json();
+      console.log("Block Data:", txData); // Debug log
+
+      if (txData.error) {
+        throw new Error(txData.error.message);
+      }
+
+      // Transform the transactions data
+      const recentTxs = txData.result?.transactions || [];
+      return recentTxs.slice(0, 10).map((tx: any) => ({
+        signature: tx.transaction.signatures[0],
+        slot: txData.result.parentSlot,
+        blockTime: txData.result.blockTime,
+      }));
     },
     refetchInterval: 10000, // Refetch every 10 seconds
   });
