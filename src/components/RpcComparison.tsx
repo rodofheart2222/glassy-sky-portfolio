@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
 
 export const RpcComparison = () => {
-  const [data, setData] = useState<Array<{time: number, profit: number, opportunities: number}>>([]);
+  const [data, setData] = useState<Array<{time: number, our: number, other: number}>>([]);
   
   useEffect(() => {
     // Initialize with some data points
     const initialData = Array.from({ length: 20 }, (_, i) => ({
       time: i,
-      profit: Math.floor(Math.random() * 0.5 * 100) / 100, // Random profit between 0-0.5 ETH
-      opportunities: Math.floor(Math.random() * 5) + 1, // Random opportunities between 1-5
+      our: Math.floor(Math.random() * 50) + 100, // Random between 100-150ms
+      other: 20, // Other's consistent 20ms
     }));
     setData(initialData);
 
@@ -19,8 +19,8 @@ export const RpcComparison = () => {
       setData(prevData => {
         const newData = [...prevData.slice(1), {
           time: prevData[prevData.length - 1].time + 1,
-          profit: Math.floor(Math.random() * 0.5 * 100) / 100,
-          opportunities: Math.floor(Math.random() * 5) + 1,
+          our: Math.floor(Math.random() * 50) + 100,
+          other: 20,
         }];
         return newData;
       });
@@ -36,13 +36,13 @@ export const RpcComparison = () => {
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data}>
             <defs>
-              <linearGradient id="profitGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#22C55E" stopOpacity={0.3}/>
-                <stop offset="95%" stopColor="#22C55E" stopOpacity={0}/>
-              </linearGradient>
-              <linearGradient id="opportunitiesGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#F97316" stopOpacity={0.2}/>
+              <linearGradient id="ourGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#F97316" stopOpacity={0.3}/>
                 <stop offset="95%" stopColor="#F97316" stopOpacity={0}/>
+              </linearGradient>
+              <linearGradient id="otherGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#FFFFFF" stopOpacity={0.2}/>
+                <stop offset="95%" stopColor="#FFFFFF" stopOpacity={0}/>
               </linearGradient>
             </defs>
             <XAxis 
@@ -51,25 +51,12 @@ export const RpcComparison = () => {
               tick={{ fill: '#FFFFFF40' }}
             />
             <YAxis 
-              yAxisId="left"
               stroke="#FFFFFF40"
               tick={{ fill: '#FFFFFF40' }}
               label={{ 
-                value: 'Profit (ETH)', 
+                value: 'Response Time (ms)', 
                 angle: -90, 
                 position: 'insideLeft',
-                fill: '#FFFFFF40'
-              }}
-            />
-            <YAxis 
-              yAxisId="right"
-              orientation="right"
-              stroke="#FFFFFF40"
-              tick={{ fill: '#FFFFFF40' }}
-              label={{ 
-                value: 'Opportunities', 
-                angle: 90, 
-                position: 'insideRight',
                 fill: '#FFFFFF40'
               }}
             />
@@ -82,26 +69,24 @@ export const RpcComparison = () => {
               labelStyle={{ color: '#FFFFFF80' }}
             />
             <Area
-              yAxisId="right"
               type="monotone"
-              dataKey="opportunities"
-              stroke="#F97316"
-              fill="url(#opportunitiesGradient)"
-              name="MEV Opportunities"
+              dataKey="other"
+              stroke="#FFFFFF60"
+              fill="url(#otherGradient)"
+              name="Other Provider"
             />
             <Area
-              yAxisId="left"
               type="monotone"
-              dataKey="profit"
-              stroke="#22C55E"
-              fill="url(#profitGradient)"
-              name="Profit (ETH)"
+              dataKey="our"
+              stroke="#F97316"
+              fill="url(#ourGradient)"
+              name="Our RPC"
             />
           </AreaChart>
         </ResponsiveContainer>
       </div>
 
-      {/* Performance Metrics - Top Right */}
+      {/* Performance Metrics - Top Right (Other Provider) */}
       <div className="absolute right-4 top-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -109,13 +94,13 @@ export const RpcComparison = () => {
           transition={{ duration: 0.5 }}
           className="glass-card p-4"
         >
-          <div className="text-[#22C55E] font-bold">Profit Tracking</div>
-          <div className="text-white/80 text-sm">Real-time profit monitoring</div>
-          <div className="text-white/80 text-sm">Average 0.25 ETH per trade</div>
+          <div className="text-white/60 font-bold">Other Provider</div>
+          <div className="text-white/60 text-sm">20ms Response Time</div>
+          <div className="text-white/60 text-sm">Limited to 100 req/sec</div>
         </motion.div>
       </div>
 
-      {/* Performance Metrics - Bottom Right */}
+      {/* Performance Metrics - Bottom Right (Our RPC) */}
       <div className="absolute right-4 bottom-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -123,9 +108,9 @@ export const RpcComparison = () => {
           transition={{ duration: 0.5 }}
           className="glass-card p-4"
         >
-          <div className="text-[#F97316] font-bold">MEV Opportunities</div>
-          <div className="text-white/80 text-sm">Live opportunity detection</div>
-          <div className="text-white/80 text-sm">~3 opportunities per minute</div>
+          <div className="text-[#F97316] font-bold">Our RPC</div>
+          <div className="text-white/80 text-sm">100ms+ Response Time</div>
+          <div className="text-white/80 text-sm">Unlimited Requests/sec</div>
         </motion.div>
       </div>
     </div>
