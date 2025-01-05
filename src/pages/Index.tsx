@@ -15,6 +15,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { RpcComparison } from "@/components/RpcComparison";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
@@ -137,6 +138,9 @@ const Index = () => {
               Performance Comparison
             </h2>
             
+            {/* Add the RPC Comparison Animation */}
+            <RpcComparison />
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               {/* Our RPC */}
               <motion.div
