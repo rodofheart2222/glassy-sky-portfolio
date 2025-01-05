@@ -47,6 +47,22 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Sticky Solana Logo */}
+      <div className="fixed top-6 left-6 z-50">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="glass-card p-4 rounded-xl hover:scale-105 transition-transform duration-200 w-20 h-20 flex items-center justify-center bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-white/20 shadow-lg hover:shadow-xl hover:border-white/30"
+        >
+          <img 
+            src="/lovable-uploads/ccc551dd-d5c7-42d0-a92f-f744f6eeb964.png" 
+            alt="Solana Logo" 
+            className="w-14 h-14 object-contain filter brightness-150 hover:brightness-200 transition-all duration-300" 
+          />
+        </motion.div>
+      </div>
+
       <HeroSection onStartClick={() => setShowDepositDialog(true)} />
       
       {/* Features Section */}
@@ -160,7 +176,7 @@ const Index = () => {
               </Button>
             </div>
             <DialogDescription className="text-center text-sm text-white/60">
-              After making payment please get in touch with support staff to activate your RPC endpoint, and link it to <a href="https://discord.com/invite/NNzKMdGn" className="text-blue-400 hover:text-blue-300 underline">our Discord server</a>
+              Your RPC service will be activated automatically after payment is confirmed.
             </DialogDescription>
           </div>
         </DialogContent>
