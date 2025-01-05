@@ -130,13 +130,13 @@ const Index = () => {
           <DialogHeader>
             <DialogTitle className="text-white">Activate RPC Service</DialogTitle>
             <DialogDescription className="text-white/80">
-              Get unlimited RPC calls for just 1 SOL
+              Get unlimited RPC calls for just $100 worth of SOL
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col items-center space-y-4">
             <div className="bg-white p-4 rounded-lg">
               <QRCodeSVG 
-                value={`solana:${solanaAddress}?amount=1`}
+                value={`solana:${solanaAddress}?amount=100&label=Unlimited%20RPC%20Service`}
                 size={200}
                 level="H"
               />
