@@ -23,10 +23,10 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ children, className }) => 
   };
 
   return (
-    <div className="relative group">
+    <div className="relative group glass-card p-1 my-4">
       <button
         onClick={copyToClipboard}
-        className="absolute right-2 top-2 p-2 rounded-lg bg-black/30 hover:bg-black/50 transition-colors"
+        className="absolute right-4 top-4 p-2 rounded-lg bg-black/30 hover:bg-black/50 transition-colors"
         aria-label="Copy code"
       >
         {copied ? (
@@ -37,7 +37,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ children, className }) => 
       </button>
       <pre
         className={cn(
-          "bg-black/20 p-4 rounded-lg overflow-x-auto scrollbar-hide",
+          "bg-black/20 p-6 rounded-lg overflow-x-auto scrollbar-hide",
           "font-mono text-sm text-white/90",
           className
         )}
