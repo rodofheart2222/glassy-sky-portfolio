@@ -27,15 +27,7 @@ export const Hero = ({ setShowDepositDialog }: { setShowDepositDialog: (show: bo
             {wrapWordsWithHoverCard("UNLIMITED POWER", definitions)}
           </div>
         </span>
-        <h1 
-          className="text-[12rem] leading-[0.9] font-black mb-8 tracking-tight flex flex-col px-8 py-6 rounded-2xl"
-          style={{
-            background: "rgba(255,255,255,0)",
-            WebkitBackdropFilter: "blur(14px)",
-            backdropFilter: "blur(14px)",
-            border: "1px solid rgba(255,255,255,0)"
-          }}
-        >
+        <h1 className="text-[12rem] leading-[0.9] font-black mb-8 tracking-tight flex flex-col backdrop-blur-lg bg-black/30 px-8 py-6 rounded-2xl border border-white/20">
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             {wrapWordsWithHoverCard("Unlimited", definitions)}
           </span>
