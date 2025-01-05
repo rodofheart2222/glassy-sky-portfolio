@@ -131,7 +131,7 @@ const Index = () => {
                 className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform transition-all group"
                 onClick={() => setShowDepositDialog(true)}
               >
-                {wrapWordsWithHoverCard("Start Building", definitions)}
+                {wrapWordsWithHoverCard("Start", definitions)}
                 <Heart className="ml-2 h-6 w-6 group-hover:text-pink-200 transition-colors" />
               </Button>
             </motion.div>
