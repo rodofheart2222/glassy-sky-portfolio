@@ -181,7 +181,7 @@ const Index = () => {
             <h2 className="text-5xl md:text-6xl font-black mb-12 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               {wrapWordsWithHoverCard("Start Building Today", definitions)}
             </h2>
-            <Button className="px-12 py-8 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-xl shadow-2xl shadow-primary/20 transform hover:scale-105 transition-all">
+            <Button variant="outline" className="px-8 py-6 rounded-full font-black text-lg border-2 border-[#F97316] bg-[#F97316]/10 hover:bg-[#F97316]/20 text-white backdrop-blur-sm">
               {wrapWordsWithHoverCard("Get API Access", definitions)}
               <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
