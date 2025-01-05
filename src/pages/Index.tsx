@@ -125,7 +125,7 @@ const Index = () => {
       </section>
 
       <Dialog open={showDepositDialog} onOpenChange={setShowDepositDialog}>
-        <DialogContent className="glass-dialog sm:max-w-md">
+        <DialogContent className="glass-dialog sm:max-w-md dialog-content">
           <DialogHeader>
             <DialogTitle className="text-white">Activate RPC Service</DialogTitle>
             <DialogDescription className="text-white/80">
