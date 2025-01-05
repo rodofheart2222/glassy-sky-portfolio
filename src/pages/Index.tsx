@@ -98,7 +98,10 @@ const Index = () => {
           className="container mx-auto px-4 text-center"
         >
           <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary border-2 border-primary/20 shadow-lg shadow-primary/20">
-            {wrapWordsWithHoverCard("UNLIMITED POWER", definitions)}
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse"></div>
+              {wrapWordsWithHoverCard("UNLIMITED POWER", definitions)}
+            </div>
           </span>
           <h1 className="text-6xl md:text-8xl font-black mb-8 tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             {wrapWordsWithHoverCard("Unlimited RPC Calls", definitions)}
