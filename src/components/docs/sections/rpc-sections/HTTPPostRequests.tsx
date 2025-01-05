@@ -1,3 +1,5 @@
+import { CodeBlock } from "../../CodeBlock";
+
 export const HTTPPostRequests = () => {
   return (
     <div>
@@ -7,9 +9,8 @@ export const HTTPPostRequests = () => {
       </p>
       <h4 className="text-xl font-bold mb-2">Request Structure:</h4>
       <p>Use your custom endpoint as the base URL for the HTTP request.</p>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`POST https://rpc.your-custom-endpoint.example.com
+      <CodeBlock>
+{`POST https://rpc.your-custom-endpoint.example.com
 Content-Type: application/json
 
 {
@@ -18,8 +19,7 @@ Content-Type: application/json
   "method": "getAccountInfo",
   "params": ["<ACCOUNT_ADDRESS>"]
 }`}
-        </code>
-      </pre>
+      </CodeBlock>
       <p className="mt-2"><strong>Components:</strong></p>
       <ul className="list-disc pl-6 space-y-2">
         <li><code>jsonrpc</code>: Specifies the JSON-RPC version, typically "2.0".</li>
@@ -30,21 +30,18 @@ Content-Type: application/json
 
       <h4 className="text-xl font-bold mt-4 mb-2">Example: Fetching Account Information</h4>
       <p><strong>JSON Payload:</strong></p>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`{
+      <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "id": 1,
   "method": "getAccountInfo",
   "params": ["<ACCOUNT_ADDRESS>", { "encoding": "jsonParsed" }]
 }`}
-        </code>
-      </pre>
+      </CodeBlock>
 
       <h4 className="text-xl font-bold mt-4 mb-2">cURL Example:</h4>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`curl -X POST https://rpc.your-custom-endpoint.example.com \\
+      <CodeBlock>
+{`curl -X POST https://rpc.your-custom-endpoint.example.com \\
   -H "Content-Type: application/json" \\
   -d '{
         "jsonrpc": "2.0",
@@ -52,14 +49,12 @@ Content-Type: application/json
         "method": "getAccountInfo",
         "params": ["<ACCOUNT_ADDRESS>"]
       }'`}
-        </code>
-      </pre>
+      </CodeBlock>
 
       <h4 className="text-xl font-bold mt-4 mb-2">Handling Responses</h4>
       <p className="mb-2"><strong>Success Response:</strong></p>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`{
+      <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "result": {
     "context": {
@@ -73,13 +68,11 @@ Content-Type: application/json
   },
   "id": 1
 }`}
-        </code>
-      </pre>
+      </CodeBlock>
 
       <p className="mb-2"><strong>Error Response:</strong></p>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`{
+      <CodeBlock>
+{`{
   "jsonrpc": "2.0",
   "error": {
     "code": -32602,
@@ -87,8 +80,7 @@ Content-Type: application/json
   },
   "id": 1
 }`}
-        </code>
-      </pre>
+      </CodeBlock>
     </div>
   );
 };
