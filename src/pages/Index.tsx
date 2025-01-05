@@ -160,7 +160,7 @@ const Index = () => {
               </Button>
             </div>
             <DialogDescription className="text-center text-sm text-white/60">
-              Your RPC service will be activated automatically after payment is confirmed.
+              Your RPC service will be activated automatically after payment is confirmed. In case of any problem, reach out to us on discord server https://discord.gg/NNzKMdGn
             </DialogDescription>
           </div>
         </DialogContent>
