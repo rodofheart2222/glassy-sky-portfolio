@@ -28,17 +28,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="fixed top-4 right-4 z-50">
-        <Link to="/docs">
-          <Button
-            variant="ghost"
-            className="text-white hover:text-primary hover:bg-white/10"
-          >
-            <BookOpen className="mr-2 h-4 w-4" />
-            Docs
-          </Button>
-        </Link>
-      </div>
       <HeroSection onStartClick={() => setShowDepositDialog(true)} />
       <ComparisonSection />
 

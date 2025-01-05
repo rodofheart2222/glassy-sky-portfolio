@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, BookOpen } from "lucide-react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { definitions } from "./definitions";
+import { Link } from "react-router-dom";
 
 interface HeroSectionProps {
   onStartClick: () => void;
@@ -63,6 +64,15 @@ export const HeroSection = ({ onStartClick }: HeroSectionProps) => {
             Start
             <ChevronRight className="ml-2 h-6 w-6" />
           </Button>
+          <Link to="/docs">
+            <Button
+              variant="ghost"
+              className="px-8 py-6 text-white hover:text-primary hover:bg-white/10 rounded-full font-black text-lg transform hover:scale-105 transition-all"
+            >
+              <BookOpen className="mr-2 h-6 w-6" />
+              Docs
+            </Button>
+          </Link>
         </div>
       </motion.div>
     </section>
