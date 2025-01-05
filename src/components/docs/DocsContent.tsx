@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Introduction } from "./sections/Introduction";
 import { Overview } from "./sections/Overview";
+import { GettingStarted } from "./sections/GettingStarted";
 
 export const DocsContent = () => {
   return (
@@ -12,6 +13,7 @@ export const DocsContent = () => {
     >
       <Introduction />
       <Overview />
+      <GettingStarted />
       {/* Additional sections will be added here */}
     </motion.div>
   );
