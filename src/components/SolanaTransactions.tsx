@@ -64,13 +64,13 @@ const SolanaTransactions = () => {
   }
 
   return (
-    <div className="backdrop-blur-[25px] backdrop-saturate-[200%] bg-white/0 rounded-xl border border-white/[0.125] p-6">
+    <div className="backdrop-blur-[25px] backdrop-saturate-[200%] bg-[#F97316]/5 rounded-xl border border-[#F97316]/20 p-6 shadow-lg shadow-[#F97316]/10">
       <Table>
         <TableHeader>
-          <TableRow className="border-b border-white/10">
-            <TableHead className="text-white/80">Signature</TableHead>
-            <TableHead className="text-white/80">Slot</TableHead>
-            <TableHead className="text-white/80">Time</TableHead>
+          <TableRow className="border-b border-[#F97316]/20">
+            <TableHead className="text-[#F97316]/80">Signature</TableHead>
+            <TableHead className="text-[#F97316]/80">Slot</TableHead>
+            <TableHead className="text-[#F97316]/80">Time</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -82,7 +82,7 @@ const SolanaTransactions = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                className="border-b border-white/5 text-white/90 hover:bg-white/5 transition-colors"
+                className="border-b border-[#F97316]/10 text-white/90 hover:bg-[#F97316]/5 transition-colors"
               >
                 <TableCell className="font-mono">
                   {tx.signature.slice(0, 16)}...
