@@ -1,4 +1,7 @@
 export const definitions: Record<string, string> = {
+  unlimited: "No restrictions or limits on usage",
+  rpc: "Remote Procedure Call - a protocol for requesting a service",
+  calls: "Requests made to execute specific functions",
   power: "Computational capability and processing strength",
   remote: "Operations performed from a distance",
   procedure: "A set of instructions or method to perform a task",
