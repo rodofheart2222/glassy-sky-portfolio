@@ -160,7 +160,7 @@ const Index = () => {
               </Button>
             </div>
             <DialogDescription className="text-center text-sm text-white/60">
-              Your RPC service will be activated automatically after payment is confirmed.
+              After making payment please get in touch with support staff to activate your RPC endpoint, and link it to <a href="https://discord.com/invite/NNzKMdGn" className="text-blue-400 hover:text-blue-300 underline">our Discord server</a>
             </DialogDescription>
           </div>
         </DialogContent>
