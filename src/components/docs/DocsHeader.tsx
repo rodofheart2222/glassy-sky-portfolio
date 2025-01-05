@@ -29,9 +29,6 @@ export const DocsHeader = () => {
         transition={{ duration: 0.5 }}
         className="glass-card p-8 rounded-xl mb-8"
       >
-        <h1 className="text-4xl font-black mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-          Unlimited RPC Endpoints Documentation
-        </h1>
       </motion.div>
     </>
   );
