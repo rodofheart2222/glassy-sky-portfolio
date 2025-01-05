@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ArrowRight, Star, Copy } from "lucide-react";
+import { ChevronRight, ArrowRight, Star, Copy, Sparkles, Heart } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -97,27 +97,86 @@ const Index = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4 text-center"
         >
-          <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary border-2 border-primary/20 shadow-lg shadow-primary/20">
+          <motion.div
+            animate={{
+              scale: [1, 1.1, 1],
+              rotate: [0, 5, -5, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary border-2 border-primary/20 shadow-lg shadow-primary/20"
+          >
+            <Sparkles className="inline-block w-5 h-5 mr-2 animate-pulse" />
             {wrapWordsWithHoverCard("UNLIMITED POWER", definitions)}
-          </span>
+            <Sparkles className="inline-block w-5 h-5 ml-2 animate-pulse" />
+          </motion.div>
+          
           <h1 className="text-6xl md:text-8xl font-black mb-8 tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             {wrapWordsWithHoverCard("Unlimited RPC Calls", definitions)}
           </h1>
+          
           <p className="text-xl md:text-2xl font-extrabold text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
             {wrapWordsWithHoverCard("Scale your applications with unlimited remote procedure calls. No throttling, no limits", definitions)}
           </p>
+          
           <div className="flex items-center justify-center gap-6">
-            <Button 
-              className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform hover:scale-105 transition-all"
-              onClick={() => setShowDepositDialog(true)}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {wrapWordsWithHoverCard("Start Building", definitions)}
-              <ChevronRight className="ml-2 h-6 w-6" />
-            </Button>
-            <Button variant="outline" className="px-8 py-6 rounded-full font-black text-lg border-2 hover:bg-primary/5 text-white border-white/20">
-              {wrapWordsWithHoverCard("View Documentation", definitions)}
-            </Button>
+              <Button 
+                className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform transition-all group"
+                onClick={() => setShowDepositDialog(true)}
+              >
+                {wrapWordsWithHoverCard("Start Building", definitions)}
+                <Heart className="ml-2 h-6 w-6 group-hover:text-pink-200 transition-colors" />
+              </Button>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button variant="outline" className="px-8 py-6 rounded-full font-black text-lg border-2 hover:bg-primary/5 text-white border-white/20 group">
+                {wrapWordsWithHoverCard("View Documentation", definitions)}
+                <ChevronRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
           </div>
+        </motion.div>
+
+        {/* Floating elements animation */}
+        <motion.div
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 360],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="absolute top-1/4 right-1/4 text-primary/20"
+        >
+          <Star className="w-12 h-12" />
+        </motion.div>
+        
+        <motion.div
+          animate={{
+            y: [0, 20, 0],
+            rotate: [0, -360],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="absolute bottom-1/4 left-1/4 text-primary/20"
+        >
+          <Heart className="w-12 h-12" />
         </motion.div>
       </section>
 
@@ -183,7 +242,11 @@ const Index = () => {
       <Dialog open={showDepositDialog} onOpenChange={setShowDepositDialog}>
         <DialogContent className="glass-card sm:max-w-md border-0 bg-black/30">
           <DialogHeader>
-            <DialogTitle className="text-white">Activate RPC Service</DialogTitle>
+            <DialogTitle className="text-white flex items-center justify-center gap-2">
+              <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+              Activate RPC Service
+              <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+            </DialogTitle>
             <DialogDescription className="text-white/80">
               Get unlimited RPC calls for just $100
             </DialogDescription>
@@ -193,15 +256,22 @@ const Index = () => {
             <Button
               type="button"
               variant="secondary"
-              className="px-3 hover:bg-white/10"
+              className="px-3 hover:bg-white/10 group"
               onClick={handleCopyAddress}
             >
-              <Copy className="h-4 w-4" />
+              <Copy className="h-4 w-4 group-hover:scale-110 transition-transform" />
               <span className="sr-only">Copy</span>
             </Button>
           </div>
           <DialogDescription className="text-center text-sm text-white/60">
             Your RPC service will be activated automatically after payment is confirmed.
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="mt-2"
+            >
+              <Heart className="w-4 h-4 inline-block text-primary" />
+            </motion.div>
           </DialogDescription>
         </DialogContent>
       </Dialog>
