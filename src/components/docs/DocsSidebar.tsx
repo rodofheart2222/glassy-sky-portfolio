@@ -4,23 +4,10 @@ const sections = [
   { id: "introduction", label: "Introduction" },
   { id: "overview", label: "Overview of RPC Endpoints" },
   { id: "getting-started", label: "Getting Started" },
-  { id: "accessing-endpoints", label: "Accessing the RPC Endpoints" },
-  { id: "authentication", label: "Authentication and Security" },
-  { id: "making-requests", label: "Making RPC Requests" },
-  { id: "advanced-usage", label: "Advanced Usage" },
-  { id: "error-handling", label: "Error Handling" },
-  { id: "performance", label: "Performance Optimization" },
-  { id: "best-practices", label: "Best Practices" },
-  { id: "use-cases", label: "Use Cases" },
-  { id: "case-studies", label: "Case Studies" },
-  { id: "troubleshooting", label: "Troubleshooting" },
-  { id: "api-reference", label: "API Reference" },
-  { id: "changelog", label: "Changelog" },
-  { id: "faqs", label: "FAQs" },
-  { id: "glossary", label: "Glossary" },
-  { id: "resources", label: "Additional Resources" },
-  { id: "contribution", label: "Contribution Guidelines" },
-  { id: "license", label: "License" }
+  { id: "accessing-rpc-endpoints", label: "Accessing the RPC Endpoints" },
+  { id: "authentication-and-security", label: "Authentication and Security" },
+  { id: "making-rpc-requests", label: "Making RPC Requests" },
+  { id: "api-reference", label: "API Reference" }
 ];
 
 export const DocsSidebar = () => {
