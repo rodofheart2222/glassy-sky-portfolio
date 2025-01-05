@@ -99,7 +99,10 @@ const Index = () => {
         >
           <span className="inline-block px-6 py-2 mb-6 text-lg font-black rounded-full bg-primary/20 text-primary border-2 border-primary/20 shadow-lg shadow-primary/20">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse"></div>
+              <div className="relative">
+                <div className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse"></div>
+                <div className="absolute inset-0 w-3 h-3 rounded-full bg-[#4ADE80] blur-sm opacity-70"></div>
+              </div>
               {wrapWordsWithHoverCard("UNLIMITED POWER", definitions)}
             </div>
           </span>
