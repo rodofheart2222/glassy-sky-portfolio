@@ -10,10 +10,6 @@ export const ComparisonSection = () => {
           transition={{ duration: 0.8 }}
           className="glass-card p-8 md:p-12"
         >
-          <h2 className="text-4xl font-black mb-12 text-center text-white">
-            Performance Comparison
-          </h2>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
