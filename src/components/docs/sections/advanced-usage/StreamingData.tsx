@@ -1,3 +1,5 @@
+import { CodeBlock } from "../../CodeBlock";
+
 export const StreamingData = () => {
   return (
     <div>
@@ -19,9 +21,8 @@ export const StreamingData = () => {
         <li><strong>Manage Connection Lifecycle</strong>: Handle reconnections, disconnections, and errors gracefully.</li>
       </ol>
       <h4 className="text-xl font-bold mt-4 mb-2">Example: Subscribing to Multiple Accounts</h4>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`const socket = new WebSocket('wss://rpc.your-custom-endpoint.example.com/ws');
+      <CodeBlock>
+{`const socket = new WebSocket('wss://rpc.your-custom-endpoint.example.com/ws');
 
 socket.onopen = () => {
   // Subscribe to Account 1
@@ -45,8 +46,7 @@ socket.onmessage = (event) => {
   const response = JSON.parse(event.data);
   console.log('Update:', response);
 };`}
-        </code>
-      </pre>
+      </CodeBlock>
     </div>
   );
 };

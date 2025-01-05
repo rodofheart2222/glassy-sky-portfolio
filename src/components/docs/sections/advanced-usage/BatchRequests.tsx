@@ -1,3 +1,5 @@
+import { CodeBlock } from "../../CodeBlock";
+
 export const BatchRequests = () => {
   return (
     <div>
@@ -7,9 +9,8 @@ export const BatchRequests = () => {
       </p>
       <h4 className="text-xl font-bold mt-4 mb-2">Structure:</h4>
       <p>A batch request is an array of individual RPC request objects.</p>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`[
+      <CodeBlock>
+{`[
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -29,12 +30,10 @@ export const BatchRequests = () => {
     "params": ["<ACCOUNT_ADDRESS_3>"]
   }
 ]`}
-        </code>
-      </pre>
+      </CodeBlock>
       <p className="mt-2"><strong>cURL Example:</strong></p>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`curl -X POST https://rpc.your-custom-endpoint.example.com \\
+      <CodeBlock>
+{`curl -X POST https://rpc.your-custom-endpoint.example.com \\
   -H "Content-Type: application/json" \\
   -d '[
     {
@@ -56,13 +55,11 @@ export const BatchRequests = () => {
       "params": ["<ACCOUNT_ADDRESS_3>"]
     }
   ]'`}
-        </code>
-      </pre>
+      </CodeBlock>
       <h4 className="text-xl font-bold mt-4 mb-2">Handling Responses:</h4>
       <p>The server responds with an array of responses corresponding to each request.</p>
-      <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-        <code>
-          {`[
+      <CodeBlock>
+{`[
   {
     "jsonrpc": "2.0",
     "result": { /* Account Info 1 */ },
@@ -79,8 +76,7 @@ export const BatchRequests = () => {
     "id": 3
   }
 ]`}
-        </code>
-      </pre>
+      </CodeBlock>
     </div>
   );
 };

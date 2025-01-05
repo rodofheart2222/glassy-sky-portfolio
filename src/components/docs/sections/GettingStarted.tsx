@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { CodeBlock } from "../CodeBlock";
 
 export const GettingStarted = () => {
   return (
@@ -68,9 +69,9 @@ export const GettingStarted = () => {
             <li><strong>Configure Environment Variables</strong>:
               <p>Store your custom endpoint securely using environment variables.</p>
               <p>Example (Unix-based systems):</p>
-              <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg overflow-x-auto">
-                <code>export RPC_ENDPOINT=https://your-custom-endpoint.example.com</code>
-              </pre>
+              <CodeBlock>
+export RPC_ENDPOINT=https://your-custom-endpoint.example.com
+              </CodeBlock>
             </li>
             <li><strong>Set Up Error Handling</strong>: Implement mechanisms to handle potential errors and retries.</li>
             <li><strong>Test Connectivity</strong>: Perform a simple RPC call to ensure your setup is correct.</li>
