@@ -94,7 +94,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Infrastructure Illustration */}
+      {/* MEV Bot Operations Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto">
           <motion.div
@@ -106,30 +106,34 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-4xl font-black mb-6 text-white">
-                  Global Infrastructure
+                  MEV Bot Operations
                 </h2>
                 <p className="text-white/80 mb-6 text-lg">
-                  Our RPC nodes are strategically distributed across multiple continents to ensure minimal latency and maximum reliability for your applications.
+                  Maximize your trading advantage with our high-performance MEV bot infrastructure. Monitor mempool transactions and execute profitable arbitrage opportunities in real-time.
                 </p>
                 <ul className="space-y-4 text-white/80">
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-[#F97316]" />
-                    <span>Multiple data centers across North America, Europe, and Asia</span>
+                    <span>Real-time mempool monitoring for arbitrage opportunities</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-[#F97316]" />
-                    <span>Automatic failover and load balancing</span>
+                    <span>Sandwich trading and frontrunning detection</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-[#F97316]" />
-                    <span>Real-time monitoring and scaling</span>
+                    <span>Automated profit optimization strategies</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-[#F97316]" />
+                    <span>Custom gas optimization for higher success rates</span>
                   </li>
                 </ul>
               </div>
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
-                  alt="Global Infrastructure"
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+                  alt="MEV Bot Operations"
                   className="rounded-xl shadow-2xl hover-scale"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl"></div>
