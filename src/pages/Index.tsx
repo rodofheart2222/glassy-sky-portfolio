@@ -48,14 +48,18 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Sticky Solana Logo */}
-      <div className="fixed top-4 left-4 z-50">
+      <div className="fixed top-6 left-6 z-50">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="glass-card p-2 rounded-lg hover:scale-105 transition-transform duration-200 w-16 h-16 flex items-center justify-center"
+          className="glass-card p-4 rounded-xl hover:scale-105 transition-transform duration-200 w-20 h-20 flex items-center justify-center bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-white/20 shadow-lg hover:shadow-xl hover:border-white/30"
         >
-          <img src="/lovable-uploads/ccc551dd-d5c7-42d0-a92f-f744f6eeb964.png" alt="Solana Logo" className="w-12 h-12 object-contain" />
+          <img 
+            src="/lovable-uploads/ccc551dd-d5c7-42d0-a92f-f744f6eeb964.png" 
+            alt="Solana Logo" 
+            className="w-14 h-14 object-contain filter brightness-150 hover:brightness-200 transition-all duration-300" 
+          />
         </motion.div>
       </div>
 
