@@ -12,7 +12,6 @@ import { Copy, Server, Zap, Shield, Clock, Database } from "lucide-react";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ComparisonSection } from "@/components/home/ComparisonSection";
 import { motion } from "framer-motion";
-import { RpcComparison } from "@/components/RpcComparison";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
@@ -130,9 +129,6 @@ const Index = () => {
                     <span>Custom gas optimization for higher success rates</span>
                   </li>
                 </ul>
-              </div>
-              <div className="relative">
-                <RpcComparison />
               </div>
             </div>
           </motion.div>
