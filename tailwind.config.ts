@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        uber: ["Uber Move", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
