@@ -23,7 +23,6 @@ const wrapWordsWithHoverCard = (text: string) => {
             <div className="flex flex-col gap-2">
               <p className="text-sm font-medium text-white/90">{definition}</p>
               <div className="h-px bg-white/10" />
-              <span className="text-xs text-white/60 italic">Hover for more info</span>
             </div>
           </HoverCardContent>
         </HoverCard>
