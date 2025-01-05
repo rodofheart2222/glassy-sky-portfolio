@@ -14,19 +14,6 @@ import { ComparisonSection } from "@/components/home/ComparisonSection";
 import { motion } from "framer-motion";
 import { RpcComparison } from "@/components/RpcComparison";
 
-const Index = () => {
-  const [showDepositDialog, setShowDepositDialog] = useState(false);
-  const { toast } = useToast();
-  const address = "83tf89CSaDyKfApAM3QbULiLLV3rvEdd5mem8XDiqUnk";
-
-  const handleCopyAddress = () => {
-    navigator.clipboard.writeText(address);
-    toast({
-      title: "Address copied!",
-      description: "Address has been copied to clipboard",
-    });
-  };
-
   const features = [
     {
       icon: <Server className="w-12 h-12 text-[#F97316]" />,
@@ -44,6 +31,21 @@ const Index = () => {
       description: "Round-the-clock monitoring and support to ensure your applications never miss a beat.",
     }
   ];
+
+const Index = () => {
+  const [showDepositDialog, setShowDepositDialog] = useState(false);
+  const { toast } = useToast();
+  const address = "83tf89CSaDyKfApAM3QbULiLLV3rvEdd5mem8XDiqUnk";
+
+  const handleCopyAddress = () => {
+    navigator.clipboard.writeText(address);
+    toast({
+      title: "Address copied!",
+      description: "Address has been copied to clipboard",
+    });
+  };
+
+  // ... keep existing code (features array and other constants)
 
   return (
     <div className="min-h-screen">
@@ -160,8 +162,15 @@ const Index = () => {
               </Button>
             </div>
             <DialogDescription className="text-center text-sm text-white/60">
-              Your RPC service will be activated automatically after payment is confirmed. In case of any problem, reach out to us on discord server https://discord.gg/NNzKMdGn
+              Your RPC service will be activated automatically after payment is confirmed.
             </DialogDescription>
+            <Button
+              variant="secondary"
+              className="bg-white text-black hover:bg-white/90"
+              onClick={() => window.open('https://discord.gg/NNzKMdGn', '_blank')}
+            >
+              Discord
+            </Button>
           </div>
         </DialogContent>
       </Dialog>
