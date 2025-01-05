@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Introduction } from "./sections/Introduction";
 import { Overview } from "./sections/Overview";
 import { GettingStarted } from "./sections/GettingStarted";
+import { AccessingRPCEndpoints } from "./sections/AccessingRPCEndpoints";
 
 export const DocsContent = () => {
   return (
@@ -14,6 +15,7 @@ export const DocsContent = () => {
       <Introduction />
       <Overview />
       <GettingStarted />
+      <AccessingRPCEndpoints />
       {/* Additional sections will be added here */}
     </motion.div>
   );
