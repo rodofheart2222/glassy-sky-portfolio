@@ -13,16 +13,16 @@
   body {
     @apply antialiased;
     font-family: 'Inter', sans-serif;
-    background-color: #0f172a;
+    background-color: #1A1F2C;
     background-image: 
-      radial-gradient(at 47% 33%, hsl(271.58, 67%, 42%) 0, transparent 59%), 
-      radial-gradient(at 82% 65%, hsl(271.58, 67%, 32%) 0, transparent 55%);
+      radial-gradient(at 47% 33%, hsla(277, 75%, 84%, 0.5) 0, transparent 59%), 
+      radial-gradient(at 82% 65%, hsla(297, 50%, 51%, 0.4) 0, transparent 55%);
   }
 }
 
 @layer components {
   .glass-card {
-    @apply backdrop-blur-lg bg-black/30 border border-white/20 rounded-2xl;
+    @apply backdrop-blur-lg bg-black/30 border border-[#9b87f5]/20 rounded-2xl;
     backdrop-filter: blur(16px) saturate(16%);
     -webkit-backdrop-filter: blur(16px) saturate(16%);
   }
@@ -32,7 +32,8 @@
   }
   
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #9b87f5 0%, #7E69AB 100%);
   }
 
   .hover-card {
@@ -47,19 +48,19 @@
   .glass-effect-card {
     backdrop-filter: blur(25px) saturate(200%);
     -webkit-backdrop-filter: blur(25px) saturate(200%);
-    background-color: rgba(17, 25, 40, 0.7);
+    background-color: rgba(26, 31, 44, 0.7);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+    border: 1px solid rgba(155, 135, 245, 0.125);
     box-shadow: 
-      0 8px 32px 0 rgba(139, 92, 246, 0.37),
-      0 0 64px 0 rgba(255, 255, 255, 0.1) inset,
-      0 0 20px rgba(139, 92, 246, 0.5);
+      0 8px 32px 0 rgba(155, 135, 245, 0.37),
+      0 0 64px 0 rgba(229, 222, 255, 0.1) inset,
+      0 0 20px rgba(155, 135, 245, 0.5);
   }
 
   .glow-text {
     text-shadow: 
-      0 0 20px rgba(139, 92, 246, 0.5),
-      0 0 40px rgba(139, 92, 246, 0.3);
+      0 0 20px rgba(155, 135, 245, 0.5),
+      0 0 40px rgba(155, 135, 245, 0.3);
   }
 
   .purple-gradient-text {
