@@ -9,8 +9,8 @@ export const RpcComparison = () => {
     // Initialize with some data points
     const initialData = Array.from({ length: 20 }, (_, i) => ({
       time: i,
-      our: Math.floor(Math.random() * 50) + 100, // Random between 100-150ms
-      other: 20, // Their consistent 20ms
+      our: 20, // Our consistent 20ms
+      other: Math.floor(Math.random() * 50) + 100, // Random between 100-150ms
     }));
     setData(initialData);
 
@@ -19,8 +19,8 @@ export const RpcComparison = () => {
       setData(prevData => {
         const newData = [...prevData.slice(1), {
           time: prevData[prevData.length - 1].time + 1,
-          our: Math.floor(Math.random() * 50) + 100,
-          other: 20,
+          our: 20,
+          other: Math.floor(Math.random() * 50) + 100,
         }];
         return newData;
       });
@@ -95,8 +95,8 @@ export const RpcComparison = () => {
           className="glass-card p-4"
         >
           <div className="text-[#F97316] font-bold">Our RPC</div>
-          <div className="text-white/80 text-sm">100ms+ Response Time</div>
-          <div className="text-white/80 text-sm">Limited to 100 req/sec</div>
+          <div className="text-white/80 text-sm">20ms Response Time</div>
+          <div className="text-white/80 text-sm">Unlimited Requests/sec</div>
         </motion.div>
       </div>
 
@@ -109,8 +109,8 @@ export const RpcComparison = () => {
           className="glass-card p-4"
         >
           <div className="text-white/60 font-bold">Other Provider</div>
-          <div className="text-white/60 text-sm">20ms Response Time</div>
-          <div className="text-white/60 text-sm">Unlimited Requests/sec</div>
+          <div className="text-white/60 text-sm">100ms+ Response Time</div>
+          <div className="text-white/60 text-sm">Limited to 100 req/sec</div>
         </motion.div>
       </div>
     </div>
