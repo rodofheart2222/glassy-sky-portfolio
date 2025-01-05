@@ -1,20 +1,16 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend } from "recharts";
+import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
 
 export const RpcComparison = () => {
-  const [data, setData] = useState<Array<{
-    timestamp: number,
-    profitEth: number,
-    opportunities: number
-  }>>([]);
+  const [data, setData] = useState<Array<{time: number, profit: number, opportunities: number}>>([]);
   
   useEffect(() => {
     // Initialize with some data points
     const initialData = Array.from({ length: 20 }, (_, i) => ({
-      timestamp: i,
-      profitEth: Number((Math.random() * 0.5).toFixed(3)),
-      opportunities: Math.floor(Math.random() * 10)
+      time: i,
+      profit: Math.floor(Math.random() * 0.5 * 100) / 100, // Random profit between 0-0.5 ETH
+      opportunities: Math.floor(Math.random() * 5) + 1, // Random opportunities between 1-5
     }));
     setData(initialData);
 
@@ -22,9 +18,9 @@ export const RpcComparison = () => {
     const interval = setInterval(() => {
       setData(prevData => {
         const newData = [...prevData.slice(1), {
-          timestamp: prevData[prevData.length - 1].timestamp + 1,
-          profitEth: Number((Math.random() * 0.5).toFixed(3)),
-          opportunities: Math.floor(Math.random() * 10)
+          time: prevData[prevData.length - 1].time + 1,
+          profit: Math.floor(Math.random() * 0.5 * 100) / 100,
+          opportunities: Math.floor(Math.random() * 5) + 1,
         }];
         return newData;
       });
@@ -35,12 +31,22 @@ export const RpcComparison = () => {
 
   return (
     <div className="relative h-96 w-full">
-      {/* Live MEV Performance Graph */}
+      {/* Live Performance Graph */}
       <div className="absolute inset-0 px-8">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data}>
+          <AreaChart data={data}>
+            <defs>
+              <linearGradient id="profitGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#22C55E" stopOpacity={0.3}/>
+                <stop offset="95%" stopColor="#22C55E" stopOpacity={0}/>
+              </linearGradient>
+              <linearGradient id="opportunitiesGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#F97316" stopOpacity={0.2}/>
+                <stop offset="95%" stopColor="#F97316" stopOpacity={0}/>
+              </linearGradient>
+            </defs>
             <XAxis 
-              dataKey="timestamp" 
+              dataKey="time" 
               stroke="#FFFFFF40"
               tick={{ fill: '#FFFFFF40' }}
             />
@@ -75,24 +81,23 @@ export const RpcComparison = () => {
               }}
               labelStyle={{ color: '#FFFFFF80' }}
             />
-            <Legend />
-            <Line
-              yAxisId="left"
-              type="monotone"
-              dataKey="profitEth"
-              stroke="#F97316"
-              name="Profit (ETH)"
-              dot={false}
-            />
-            <Line
+            <Area
               yAxisId="right"
               type="monotone"
               dataKey="opportunities"
-              stroke="#FFFFFF"
+              stroke="#F97316"
+              fill="url(#opportunitiesGradient)"
               name="MEV Opportunities"
-              dot={false}
             />
-          </LineChart>
+            <Area
+              yAxisId="left"
+              type="monotone"
+              dataKey="profit"
+              stroke="#22C55E"
+              fill="url(#profitGradient)"
+              name="Profit (ETH)"
+            />
+          </AreaChart>
         </ResponsiveContainer>
       </div>
 
@@ -104,9 +109,9 @@ export const RpcComparison = () => {
           transition={{ duration: 0.5 }}
           className="glass-card p-4"
         >
-          <div className="text-white/60 font-bold">Last 24h Stats</div>
-          <div className="text-white/60 text-sm">Total Profit: 2.5 ETH</div>
-          <div className="text-white/60 text-sm">Success Rate: 85%</div>
+          <div className="text-[#22C55E] font-bold">Profit Tracking</div>
+          <div className="text-white/80 text-sm">Real-time profit monitoring</div>
+          <div className="text-white/80 text-sm">Average 0.25 ETH per trade</div>
         </motion.div>
       </div>
 
@@ -118,9 +123,9 @@ export const RpcComparison = () => {
           transition={{ duration: 0.5 }}
           className="glass-card p-4"
         >
-          <div className="text-[#F97316] font-bold">Real-time Metrics</div>
-          <div className="text-white/80 text-sm">Active Opportunities: 8</div>
-          <div className="text-white/80 text-sm">Gas Price: 25 Gwei</div>
+          <div className="text-[#F97316] font-bold">MEV Opportunities</div>
+          <div className="text-white/80 text-sm">Live opportunity detection</div>
+          <div className="text-white/80 text-sm">~3 opportunities per minute</div>
         </motion.div>
       </div>
     </div>
