@@ -15,17 +15,18 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { QRCodeSVG } from "qrcode.react";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
   const { toast } = useToast();
-  const btcAddress = "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh";
+  const solanaAddress = "7eDz3qZuGC6hqQT7zXrS81BgBAGDpKHJtGQddwvs9wuc";
 
   const handleCopyAddress = () => {
-    navigator.clipboard.writeText(btcAddress);
+    navigator.clipboard.writeText(solanaAddress);
     toast({
       title: "Address copied!",
-      description: "BTC address has been copied to clipboard",
+      description: "Solana address has been copied to clipboard",
     });
   };
 
@@ -129,20 +130,29 @@ const Index = () => {
           <DialogHeader>
             <DialogTitle className="text-white">Activate RPC Service</DialogTitle>
             <DialogDescription className="text-white/80">
-              Get unlimited RPC calls for just $100
+              Get unlimited RPC calls for just 1 SOL
             </DialogDescription>
           </DialogHeader>
-          <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-white/10">
-            <code className="flex-1 text-sm break-all text-white/90">{btcAddress}</code>
-            <Button
-              type="button"
-              variant="secondary"
-              className="px-3 hover:bg-white/10"
-              onClick={handleCopyAddress}
-            >
-              <Copy className="h-4 w-4" />
-              <span className="sr-only">Copy</span>
-            </Button>
+          <div className="flex flex-col items-center space-y-4">
+            <div className="bg-white p-4 rounded-lg">
+              <QRCodeSVG 
+                value={`solana:${solanaAddress}?amount=1`}
+                size={200}
+                level="H"
+              />
+            </div>
+            <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-white/10 w-full">
+              <code className="flex-1 text-sm break-all text-white/90">{solanaAddress}</code>
+              <Button
+                type="button"
+                variant="secondary"
+                className="px-3 hover:bg-white/10"
+                onClick={handleCopyAddress}
+              >
+                <Copy className="h-4 w-4" />
+                <span className="sr-only">Copy</span>
+              </Button>
+            </div>
           </div>
           <DialogDescription className="text-center text-sm text-white/60">
             Your RPC service will be activated automatically after payment is confirmed.
