@@ -22,23 +22,51 @@ export const ComparisonSection = () => {
               className="glass-card p-6 border-[#F97316] border-2"
             >
               <h3 className="text-2xl font-bold mb-4 text-[#F97316]">Our RPC</h3>
-              <ul className="space-y-4 text-white">
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#F97316]" />
-                  <span>Unlimited requests per second</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#F97316]" />
-                  <span>20ms average response time</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#F97316]" />
-                  <span>99.99% uptime guarantee</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#F97316]" />
-                  <span>No rate limiting</span>
-                </li>
+              <ul className="space-y-4">
+                <motion.li 
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="glass-card p-4 hover-scale"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-[#F97316]" />
+                    <span className="text-white">Unlimited requests per second</span>
+                  </div>
+                </motion.li>
+                <motion.li 
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="glass-card p-4 hover-scale"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-[#F97316]" />
+                    <span className="text-white">20ms average response time</span>
+                  </div>
+                </motion.li>
+                <motion.li 
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="glass-card p-4 hover-scale"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-[#F97316]" />
+                    <span className="text-white">99.99% uptime guarantee</span>
+                  </div>
+                </motion.li>
+                <motion.li 
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="glass-card p-4 hover-scale"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-[#F97316]" />
+                    <span className="text-white">No rate limiting</span>
+                  </div>
+                </motion.li>
               </ul>
             </motion.div>
 
@@ -49,23 +77,51 @@ export const ComparisonSection = () => {
               className="glass-card p-6 border-white/20 border"
             >
               <h3 className="text-2xl font-bold mb-4 text-white/80">Other Providers</h3>
-              <ul className="space-y-4 text-white/80">
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-white/60" />
-                  <span>Limited to 100 requests/second</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-white/60" />
-                  <span>100ms+ average response time</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-white/60" />
-                  <span>99.9% uptime</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-white/60" />
-                  <span>Strict rate limiting</span>
-                </li>
+              <ul className="space-y-4">
+                <motion.li 
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="glass-card p-4 hover-scale"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-white/60" />
+                    <span className="text-white/80">Limited to 100 requests/second</span>
+                  </div>
+                </motion.li>
+                <motion.li 
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="glass-card p-4 hover-scale"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-white/60" />
+                    <span className="text-white/80">100ms+ average response time</span>
+                  </div>
+                </motion.li>
+                <motion.li 
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="glass-card p-4 hover-scale"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-white/60" />
+                    <span className="text-white/80">99.9% uptime</span>
+                  </div>
+                </motion.li>
+                <motion.li 
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="glass-card p-4 hover-scale"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-white/60" />
+                    <span className="text-white/80">Strict rate limiting</span>
+                  </div>
+                </motion.li>
               </ul>
             </motion.div>
           </div>
