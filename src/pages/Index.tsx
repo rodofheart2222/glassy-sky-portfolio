@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Copy, Server, Zap, Clock } from "lucide-react";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ComparisonSection } from "@/components/home/ComparisonSection";
-import { TechStackSection } from "@/components/home/TechStackSection";
 import { motion } from "framer-motion";
 import { RpcComparison } from "@/components/RpcComparison";
 
@@ -85,8 +84,6 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
-
-      <TechStackSection />
 
       {/* MEV Bot Operations Section */}
       <section className="py-20 px-4">
