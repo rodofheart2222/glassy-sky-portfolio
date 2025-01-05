@@ -114,13 +114,16 @@ const Index = () => {
           </p>
           <div className="flex items-center justify-center gap-6">
             <Button 
-              className="px-8 py-6 bg-primary hover:bg-primary/90 text-white rounded-full font-black text-lg shadow-xl shadow-primary/20 transform hover:scale-105 transition-all"
+              className="px-8 py-6 border-2 border-[#F97316] bg-[#F97316]/10 hover:bg-[#F97316]/20 text-white rounded-full font-black text-lg shadow-xl shadow-[#F97316]/20 transform hover:scale-105 transition-all backdrop-blur-sm"
               onClick={() => setShowDepositDialog(true)}
             >
-              {wrapWordsWithHoverCard("Start Building", definitions)}
+              Start
               <ChevronRight className="ml-2 h-6 w-6" />
             </Button>
-            <Button variant="outline" className="px-8 py-6 rounded-full font-black text-lg border-2 hover:bg-primary/5 text-white border-white/20">
+            <Button 
+              variant="outline" 
+              className="px-8 py-6 rounded-full font-black text-lg border-2 border-[#F97316] bg-[#F97316]/10 hover:bg-[#F97316]/20 text-white backdrop-blur-sm"
+            >
               {wrapWordsWithHoverCard("View Documentation", definitions)}
             </Button>
           </div>
