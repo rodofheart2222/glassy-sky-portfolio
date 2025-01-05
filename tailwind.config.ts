@@ -25,20 +25,20 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#8B5CF6",
+          DEFAULT: "#FF3B30",
           foreground: "#FFFFFF",
         },
         secondary: {
-          DEFAULT: "#6D28D9",
-          foreground: "#FFFFFF",
+          DEFAULT: "#E5E5E5",
+          foreground: "#1D1D1F",
         },
         accent: {
-          DEFAULT: "#4C1D95",
+          DEFAULT: "#FF3B30",
           foreground: "#FFFFFF",
         },
         card: {
-          DEFAULT: "rgba(17, 24, 39, 0.7)",
-          foreground: "#FFFFFF",
+          DEFAULT: "rgba(255, 255, 255, 0.1)",
+          foreground: "#1D1D1F",
         },
       },
       keyframes: {
