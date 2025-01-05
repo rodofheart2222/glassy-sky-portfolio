@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { CodeBlock } from "../CodeBlock";
 
 export const AccessingRPCEndpoints = () => {
   return (
@@ -19,13 +20,13 @@ export const AccessingRPCEndpoints = () => {
             Our RPC endpoints are organized based on different environments to cater to various stages of development and deployment:
           </p>
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Mainnet</strong>: <code className="bg-black/30 px-2 py-1 rounded">https://rpc.mainnet.example.com</code></li>
-            <li><strong>Testnet</strong>: <code className="bg-black/30 px-2 py-1 rounded">https://rpc.testnet.example.com</code></li>
-            <li><strong>Devnet</strong>: <code className="bg-black/30 px-2 py-1 rounded">https://rpc.devnet.example.com</code></li>
-            <li><strong>Localnet</strong>: <code className="bg-black/30 px-2 py-1 rounded">http://localhost:8899</code></li>
+            <li><strong>Mainnet</strong>: <CodeBlock>https://rpc.mainnet.example.com</CodeBlock></li>
+            <li><strong>Testnet</strong>: <CodeBlock>https://rpc.testnet.example.com</CodeBlock></li>
+            <li><strong>Devnet</strong>: <CodeBlock>https://rpc.devnet.example.com</CodeBlock></li>
+            <li><strong>Localnet</strong>: <CodeBlock>http://localhost:8899</CodeBlock></li>
           </ul>
           <p className="mt-4">
-            <strong>Note</strong>: Replace <code className="bg-black/30 px-2 py-1 rounded">example.com</code> with your actual domain if different.
+            <strong>Note</strong>: Replace <CodeBlock>example.com</CodeBlock> with your actual domain if different.
           </p>
         </div>
 

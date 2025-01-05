@@ -65,6 +65,22 @@ export default {
         "fade-up": "fade-up 0.5s ease-out",
         "fade-in": "fade-in 0.3s ease-out",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            pre: {
+              overflowX: 'auto',
+              maxWidth: '100%',
+            },
+            code: {
+              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              padding: '0.2em 0.4em',
+              borderRadius: '0.25rem',
+              fontSize: '0.875em',
+            },
+          },
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
