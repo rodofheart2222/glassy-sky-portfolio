@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Menu, X, BookOpen, Github, Discord } from "lucide-react";
+import { Menu, X, BookOpen, Github, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -56,7 +56,7 @@ export const Navbar = () => {
                 variant="ghost"
                 className="text-white hover:text-primary hover:bg-white/10"
               >
-                <Discord className="mr-2 h-4 w-4" />
+                <MessageCircle className="mr-2 h-4 w-4" />
                 Discord
               </Button>
             </a>
@@ -113,7 +113,7 @@ export const Navbar = () => {
                   className="text-white/80 hover:text-white transition-colors duration-200 flex items-center gap-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <Discord className="h-4 w-4" />
+                  <MessageCircle className="h-4 w-4" />
                   Discord
                 </a>
 
