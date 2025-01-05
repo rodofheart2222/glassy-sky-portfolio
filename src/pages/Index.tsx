@@ -120,12 +120,6 @@ const Index = () => {
               Start
               <ChevronRight className="ml-2 h-6 w-6" />
             </Button>
-            <Button 
-              variant="outline" 
-              className="px-8 py-6 rounded-full font-black text-lg border-2 border-[#F97316] bg-[#F97316]/10 hover:bg-[#F97316]/20 text-white backdrop-blur-sm"
-            >
-              {wrapWordsWithHoverCard("Sign in", definitions)}
-            </Button>
           </div>
         </motion.div>
       </section>
