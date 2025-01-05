@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Skeleton } from "@/components/ui/skeleton";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface Transaction {
   signature: string;
@@ -9,94 +8,117 @@ interface Transaction {
   blockTime: number;
 }
 
-const generateRandomTransaction = (): Transaction => {
-  const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  let signature = '';
-  for (let i = 0; i < 32; i++) {
-    signature += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  
-  return {
-    signature,
-    slot: Math.floor(Math.random() * 1000000),
-    blockTime: Math.floor(Date.now() / 1000),
-  };
-};
-
 const SolanaTransactions = () => {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Initial transactions
-    const initialTransactions = Array.from({ length: 5 }, generateRandomTransaction);
-    setTransactions(initialTransactions);
-    setIsLoading(false);
-
-    // Add new transactions periodically
-    const interval = setInterval(() => {
-      const newTransaction = generateRandomTransaction();
-      setTransactions(prevTxs => {
-        const combined = [newTransaction, ...prevTxs];
-        return combined.slice(0, 10); // Keep only the 10 most recent transactions
+  const { data: transactions, isLoading } = useQuery({
+    queryKey: ["solana-transactions"],
+    queryFn: async () => {
+      const response = await fetch("https://api.devnet.solana.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          jsonrpc: "2.0",
+          id: 1,
+          method: "getRecentBlockhash",
+          params: [],
+        }),
       });
-    }, 3000); // Add new transaction every 3 seconds
+      
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
+      const data = await response.json();
+      console.log("Solana API Response:", data); // Debug log
+      
+      if (data.error) {
+        throw new Error(data.error.message);
+      }
+      
+      // Get recent block
+      const blockHash = data.result.value.blockhash;
+      
+      // Now fetch recent transactions
+      const txResponse = await fetch("https://api.devnet.solana.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          jsonrpc: "2.0",
+          id: 1,
+          method: "getBlock",
+          params: [
+            data.result.value.lastValidBlockHeight,
+            {
+              encoding: "json",
+              transactionDetails: "full",
+              maxSupportedTransactionVersion: 0,
+            },
+          ],
+        }),
+      });
 
-    return () => clearInterval(interval);
-  }, []);
+      const txData = await txResponse.json();
+      console.log("Block Data:", txData); // Debug log
+
+      if (txData.error) {
+        throw new Error(txData.error.message);
+      }
+
+      // Transform the transactions data
+      const recentTxs = txData.result?.transactions || [];
+      return recentTxs.slice(0, 10).map((tx: any) => ({
+        signature: tx.transaction.signatures[0],
+        slot: txData.result.parentSlot,
+        blockTime: txData.result.blockTime,
+      }));
+    },
+    refetchInterval: 10000, // Refetch every 10 seconds
+  });
 
   if (isLoading) {
     return (
       <div className="space-y-3">
-        <Skeleton className="h-4 w-[250px] bg-white/5" />
-        <Skeleton className="h-4 w-[200px] bg-white/5" />
-        <Skeleton className="h-4 w-[250px] bg-white/5" />
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+        <Skeleton className="h-4 w-[250px]" />
       </div>
     );
   }
 
   if (!transactions || transactions.length === 0) {
     return (
-      <div className="text-center py-8 text-white/60">
+      <div className="text-center py-8 text-gray-500">
         No transactions found
       </div>
     );
   }
 
   return (
-    <div className="glass-card p-6 rounded-xl">
-      <Table>
-        <TableHeader>
-          <TableRow className="border-b border-white/10">
-            <TableHead className="text-white/80">Signature</TableHead>
-            <TableHead className="text-white/80">Slot</TableHead>
-            <TableHead className="text-white/80">Time</TableHead>
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Signature</TableHead>
+          <TableHead>Slot</TableHead>
+          <TableHead>Time</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {transactions?.map((tx: Transaction) => (
+          <TableRow key={tx.signature}>
+            <TableCell className="font-mono">
+              {tx.signature.slice(0, 16)}...
+            </TableCell>
+            <TableCell>{tx.slot}</TableCell>
+            <TableCell>
+              {new Date(tx.blockTime * 1000).toLocaleString()}
+            </TableCell>
           </TableRow>
-        </TableHeader>
-        <TableBody>
-          <AnimatePresence mode="popLayout">
-            {transactions.map((tx: Transaction) => (
-              <motion.tr
-                key={tx.signature}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-                className="border-b border-white/5 text-white/90 hover:bg-white/5 transition-colors"
-              >
-                <TableCell className="font-mono">
-                  {tx.signature.slice(0, 16)}...
-                </TableCell>
-                <TableCell>{tx.slot.toLocaleString()}</TableCell>
-                <TableCell>
-                  {new Date(tx.blockTime * 1000).toLocaleString()}
-                </TableCell>
-              </motion.tr>
-            ))}
-          </AnimatePresence>
-        </TableBody>
-      </Table>
-    </div>
+        ))}
+      </TableBody>
+    </Table>
   );
 };
 
