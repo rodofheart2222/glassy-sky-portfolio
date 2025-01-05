@@ -27,8 +27,10 @@ export const Hero = ({ setShowDepositDialog }: { setShowDepositDialog: (show: bo
             {wrapWordsWithHoverCard("UNLIMITED POWER", definitions)}
           </div>
         </span>
-        <h1 className="text-[12rem] leading-none font-black mb-8 tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-          {wrapWordsWithHoverCard("Unlimited RPC Calls", definitions)}
+        <h1 className="text-[12rem] leading-[0.9] font-black mb-8 tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent flex flex-col">
+          {wrapWordsWithHoverCard("Unlimited", definitions)}
+          {wrapWordsWithHoverCard("RPC", definitions)}
+          {wrapWordsWithHoverCard("Calls", definitions)}
         </h1>
         <p className="text-xl md:text-2xl font-extrabold text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
           {wrapWordsWithHoverCard("Scale your applications with unlimited remote procedure calls. No throttling, no limits", definitions)}
