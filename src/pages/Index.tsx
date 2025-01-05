@@ -47,18 +47,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Sticky Solana Logo */}
-      <div className="fixed top-4 left-4 z-50">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="glass-card p-2 rounded-lg hover:scale-105 transition-transform duration-200"
-        >
-          <img src="/solana-logo.svg" alt="Solana Logo" className="w-24 h-auto" />
-        </motion.div>
-      </div>
-
       <HeroSection onStartClick={() => setShowDepositDialog(true)} />
       
       {/* Features Section */}
