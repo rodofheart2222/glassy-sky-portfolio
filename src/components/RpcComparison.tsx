@@ -86,7 +86,7 @@ export const RpcComparison = () => {
         </ResponsiveContainer>
       </div>
 
-      {/* Performance Metrics */}
+      {/* Performance Metrics - Top Right (Our RPC) */}
       <div className="absolute right-4 top-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -94,11 +94,13 @@ export const RpcComparison = () => {
           transition={{ duration: 0.5 }}
           className="glass-card p-4"
         >
-          <div className="text-[#F97316] font-bold">20ms Response Time</div>
+          <div className="text-[#F97316] font-bold">Our RPC</div>
+          <div className="text-white/80 text-sm">20ms Response Time</div>
           <div className="text-white/80 text-sm">Unlimited Requests/sec</div>
         </motion.div>
       </div>
 
+      {/* Performance Metrics - Bottom Right (Other Provider) */}
       <div className="absolute right-4 bottom-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -106,7 +108,8 @@ export const RpcComparison = () => {
           transition={{ duration: 0.5 }}
           className="glass-card p-4"
         >
-          <div className="text-white/60 font-bold">100ms+ Response Time</div>
+          <div className="text-white/60 font-bold">Other Provider</div>
+          <div className="text-white/60 text-sm">100ms+ Response Time</div>
           <div className="text-white/60 text-sm">Limited to 100 req/sec</div>
         </motion.div>
       </div>
