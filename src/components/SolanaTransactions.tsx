@@ -20,60 +20,15 @@ const SolanaTransactions = () => {
         body: JSON.stringify({
           jsonrpc: "2.0",
           id: 1,
-          method: "getRecentBlockhash",
-          params: [],
-        }),
-      });
-      
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      
-      const data = await response.json();
-      console.log("Solana API Response:", data); // Debug log
-      
-      if (data.error) {
-        throw new Error(data.error.message);
-      }
-      
-      // Get recent block
-      const blockHash = data.result.value.blockhash;
-      
-      // Now fetch recent transactions
-      const txResponse = await fetch("https://api.devnet.solana.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          jsonrpc: "2.0",
-          id: 1,
-          method: "getBlock",
+          method: "getSignaturesForAddress",
           params: [
-            data.result.value.lastValidBlockHeight,
-            {
-              encoding: "json",
-              transactionDetails: "full",
-              maxSupportedTransactionVersion: 0,
-            },
+            "83tf89CSaDyKfApAM3QbULiLLV3rvEdd5mem8XDiqUnk",
+            { limit: 10 },
           ],
         }),
       });
-
-      const txData = await txResponse.json();
-      console.log("Block Data:", txData); // Debug log
-
-      if (txData.error) {
-        throw new Error(txData.error.message);
-      }
-
-      // Transform the transactions data
-      const recentTxs = txData.result?.transactions || [];
-      return recentTxs.slice(0, 10).map((tx: any) => ({
-        signature: tx.transaction.signatures[0],
-        slot: txData.result.parentSlot,
-        blockTime: txData.result.blockTime,
-      }));
+      const data = await response.json();
+      return data.result;
     },
     refetchInterval: 10000, // Refetch every 10 seconds
   });
@@ -84,14 +39,6 @@ const SolanaTransactions = () => {
         <Skeleton className="h-4 w-[250px]" />
         <Skeleton className="h-4 w-[200px]" />
         <Skeleton className="h-4 w-[250px]" />
-      </div>
-    );
-  }
-
-  if (!transactions || transactions.length === 0) {
-    return (
-      <div className="text-center py-8 text-gray-500">
-        No transactions found
       </div>
     );
   }
