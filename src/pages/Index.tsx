@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Copy, Server, Zap, Shield, Clock, Database } from "lucide-react";
+import { Copy, Server, Zap, Clock } from "lucide-react";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ComparisonSection } from "@/components/home/ComparisonSection";
 import { motion } from "framer-motion";
@@ -39,19 +39,9 @@ const Index = () => {
       description: "Average response time of 20ms, ensuring your applications run smoothly and efficiently.",
     },
     {
-      icon: <Shield className="w-12 h-12 text-[#F97316]" />,
-      title: "Advanced Security",
-      description: "Enterprise-level security with SSL encryption and DDoS protection built-in.",
-    },
-    {
       icon: <Clock className="w-12 h-12 text-[#F97316]" />,
       title: "24/7 Availability",
       description: "Round-the-clock monitoring and support to ensure your applications never miss a beat.",
-    },
-    {
-      icon: <Database className="w-12 h-12 text-[#F97316]" />,
-      title: "Unlimited Storage",
-      description: "Store and process unlimited data with our scalable infrastructure.",
     }
   ];
 
