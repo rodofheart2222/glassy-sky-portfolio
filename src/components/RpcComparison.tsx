@@ -1,56 +1,93 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
 
 export const RpcComparison = () => {
+  const [data, setData] = useState<Array<{time: number, our: number, other: number}>>([]);
+  
+  useEffect(() => {
+    // Initialize with some data points
+    const initialData = Array.from({ length: 20 }, (_, i) => ({
+      time: i,
+      our: 20, // Our consistent 20ms
+      other: Math.floor(Math.random() * 50) + 100, // Random between 100-150ms
+    }));
+    setData(initialData);
+
+    // Update data every second
+    const interval = setInterval(() => {
+      setData(prevData => {
+        const newData = [...prevData.slice(1), {
+          time: prevData[prevData.length - 1].time + 1,
+          our: 20,
+          other: Math.floor(Math.random() * 50) + 100,
+        }];
+        return newData;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative h-96 w-full">
-      {/* Our RPC Animation */}
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ 
-          x: [0, 300, 300, 0],
-          opacity: 1
-        }}
-        transition={{ 
-          duration: 3,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="absolute top-1/4 left-0"
-      >
-        <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded-full bg-[#F97316]" />
-          <span className="text-sm font-medium text-white">Our RPC Request</span>
-        </div>
-      </motion.div>
-
-      {/* Other Provider Animation */}
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ 
-          x: [0, 150, 150, 300],
-          opacity: 1
-        }}
-        transition={{ 
-          duration: 6,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="absolute top-3/4 left-0"
-      >
-        <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded-full bg-white/60" />
-          <span className="text-sm font-medium text-white/60">Other Provider Request</span>
-        </div>
-      </motion.div>
-
-      {/* Performance Lines */}
-      <div className="absolute inset-0 flex flex-col justify-around px-8">
-        <div className="h-px bg-gradient-to-r from-[#F97316]/20 via-[#F97316] to-[#F97316]/20" />
-        <div className="h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
+      {/* Live Performance Graph */}
+      <div className="absolute inset-0 px-8">
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={data}>
+            <defs>
+              <linearGradient id="ourGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#F97316" stopOpacity={0.3}/>
+                <stop offset="95%" stopColor="#F97316" stopOpacity={0}/>
+              </linearGradient>
+              <linearGradient id="otherGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#FFFFFF" stopOpacity={0.2}/>
+                <stop offset="95%" stopColor="#FFFFFF" stopOpacity={0}/>
+              </linearGradient>
+            </defs>
+            <XAxis 
+              dataKey="time" 
+              stroke="#FFFFFF40"
+              tick={{ fill: '#FFFFFF40' }}
+            />
+            <YAxis 
+              stroke="#FFFFFF40"
+              tick={{ fill: '#FFFFFF40' }}
+              label={{ 
+                value: 'Response Time (ms)', 
+                angle: -90, 
+                position: 'insideLeft',
+                fill: '#FFFFFF40'
+              }}
+            />
+            <Tooltip 
+              contentStyle={{ 
+                background: 'rgba(0,0,0,0.8)', 
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: '8px'
+              }}
+              labelStyle={{ color: '#FFFFFF80' }}
+            />
+            <Area
+              type="monotone"
+              dataKey="our"
+              stroke="#F97316"
+              fill="url(#ourGradient)"
+              name="Our RPC"
+            />
+            <Area
+              type="monotone"
+              dataKey="other"
+              stroke="#FFFFFF60"
+              fill="url(#otherGradient)"
+              name="Other Provider"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
       </div>
 
       {/* Performance Metrics */}
-      <div className="absolute right-4 top-1/4 -translate-y-1/2">
+      <div className="absolute right-4 top-4">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -62,7 +99,7 @@ export const RpcComparison = () => {
         </motion.div>
       </div>
 
-      <div className="absolute right-4 top-3/4 -translate-y-1/2">
+      <div className="absolute right-4 bottom-4">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
