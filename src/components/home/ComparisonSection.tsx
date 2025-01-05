@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { RpcComparison } from "@/components/RpcComparison";
 
 export const ComparisonSection = () => {
   return (
@@ -15,8 +14,6 @@ export const ComparisonSection = () => {
             Performance Comparison
           </h2>
           
-          <RpcComparison />
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
