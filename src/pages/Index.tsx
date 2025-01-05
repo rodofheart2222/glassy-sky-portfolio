@@ -16,12 +16,11 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { QRCodeSVG } from "qrcode.react";
-import SolanaTransactions from "@/components/SolanaTransactions";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
   const { toast } = useToast();
-  const solanaAddress = "83tf89CSaDyKfApAM3QbULiLLV3rvEdd5mem8XDiqUnk";
+  const solanaAddress = "7eDz3qZuGC6hqQT7zXrS81BgBAGDpKHJtGQddwvs9wuc";
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText(solanaAddress);
@@ -126,26 +125,18 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* Transactions Section */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8 text-center">Recent Transactions</h2>
-        <div className="max-w-4xl mx-auto">
-          <SolanaTransactions />
-        </div>
-      </section>
-
       <Dialog open={showDepositDialog} onOpenChange={setShowDepositDialog}>
         <DialogContent className="glass-dialog sm:max-w-md dialog-content">
           <DialogHeader>
             <DialogTitle className="text-white">Activate RPC Service</DialogTitle>
             <DialogDescription className="text-white/80">
-              Get unlimited RPC calls for just $100 worth of SOL
+              Get unlimited RPC calls for just 1 SOL
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col items-center space-y-4">
             <div className="bg-white p-4 rounded-lg">
               <QRCodeSVG 
-                value={`solana:${solanaAddress}?amount=100&label=Unlimited%20RPC%20Service`}
+                value={`solana:${solanaAddress}?amount=1`}
                 size={200}
                 level="H"
               />
