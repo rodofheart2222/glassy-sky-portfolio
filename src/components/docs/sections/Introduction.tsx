@@ -14,7 +14,7 @@ export const Introduction = () => {
         <div>
           <h3 className="text-2xl font-bold mb-4">Welcome</h3>
           <p className="leading-relaxed">
-            Thank you for choosing our <strong>Unlimited RPC Endpoints</strong>. This documentation is meticulously crafted to guide you through every aspect of utilizing our RPC services effectively. Whether you're a seasoned developer or just starting, you'll find valuable insights and instructions to help you integrate our RPC endpoints seamlessly into your projects.
+            Welcome to the Unlimited RPC Endpoints documentation. This guide is meticulously crafted to guide you through every aspect of utilizing our RPC services effectively. Whether you're a seasoned developer or just starting, you'll find valuable insights and instructions to help you integrate our RPC endpoints seamlessly into your projects.
           </p>
         </div>
         
@@ -30,6 +30,9 @@ export const Introduction = () => {
             <li><strong>Troubleshooting common issues</strong> and understanding error codes.</li>
             <li><strong>Leveraging advanced features</strong> for complex use cases.</li>
           </ul>
+          <p className="leading-relaxed mt-4">
+            By the end of this guide, you'll be equipped with the knowledge to harness the full potential of our Unlimited RPC Endpoints without the constraints of rate limits.
+          </p>
         </div>
       </div>
     </motion.section>
