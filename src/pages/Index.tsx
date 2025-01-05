@@ -12,6 +12,7 @@ import { Copy, Server, Zap, Shield, Clock, Database } from "lucide-react";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ComparisonSection } from "@/components/home/ComparisonSection";
 import { motion } from "framer-motion";
+import { RpcComparison } from "@/components/RpcComparison";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
@@ -131,12 +132,7 @@ const Index = () => {
                 </ul>
               </div>
               <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-                  alt="MEV Bot Operations"
-                  className="rounded-xl shadow-2xl hover-scale"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl"></div>
+                <RpcComparison />
               </div>
             </div>
           </motion.div>
