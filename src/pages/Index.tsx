@@ -8,9 +8,10 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Copy } from "lucide-react";
+import { BookOpen, Copy } from "lucide-react";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ComparisonSection } from "@/components/home/ComparisonSection";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
@@ -27,6 +28,17 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <div className="fixed top-4 right-4 z-50">
+        <Link to="/docs">
+          <Button
+            variant="ghost"
+            className="text-white hover:text-primary hover:bg-white/10"
+          >
+            <BookOpen className="mr-2 h-4 w-4" />
+            Docs
+          </Button>
+        </Link>
+      </div>
       <HeroSection onStartClick={() => setShowDepositDialog(true)} />
       <ComparisonSection />
 
