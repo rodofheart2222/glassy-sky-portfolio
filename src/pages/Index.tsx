@@ -12,7 +12,6 @@ import { Copy, Server, Zap, Shield, Clock, Database } from "lucide-react";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ComparisonSection } from "@/components/home/ComparisonSection";
 import { motion } from "framer-motion";
-import { RpcComparison } from "@/components/RpcComparison";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
@@ -104,7 +103,7 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="glass-card p-8 md:p-12"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 gap-12">
               <div>
                 <h2 className="text-4xl font-black mb-6 text-white">
                   MEV Bot Operations
@@ -130,9 +129,6 @@ const Index = () => {
                     <span>Custom gas optimization for higher success rates</span>
                   </li>
                 </ul>
-              </div>
-              <div className="relative">
-                <RpcComparison />
               </div>
             </div>
           </motion.div>
