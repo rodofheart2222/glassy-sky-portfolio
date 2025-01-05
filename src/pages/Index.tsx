@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Copy, Server, Zap, Clock, Network, Shield, ChartBar } from "lucide-react";
+import { Copy, Server, Zap, Clock } from "lucide-react";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ComparisonSection } from "@/components/home/ComparisonSection";
 import { TechStackSection } from "@/components/home/TechStackSection";
@@ -33,70 +33,16 @@ const Index = () => {
       icon: <Server className="w-12 h-12 text-[#F97316]" />,
       title: "High-Performance Infrastructure",
       description: "Enterprise-grade servers with 99.99% uptime guarantee and global distribution for minimal latency.",
-      items: [
-        "Load-balanced RPC nodes",
-        "Geographic distribution",
-        "Automatic failover",
-        "24/7 monitoring"
-      ]
     },
     {
       icon: <Zap className="w-12 h-12 text-[#F97316]" />,
       title: "Lightning Fast Response",
-      description: "Average response time of 20ms, ensuring your MEV operations execute with maximum efficiency.",
-      items: [
-        "Sub-20ms response time",
-        "Optimized network routes",
-        "Priority transaction handling",
-        "Flash transaction support"
-      ]
+      description: "Average response time of 20ms, ensuring your applications run smoothly and efficiently.",
     },
     {
       icon: <Clock className="w-12 h-12 text-[#F97316]" />,
       title: "24/7 Availability",
-      description: "Round-the-clock monitoring and support to ensure your MEV operations never miss an opportunity.",
-      items: [
-        "Continuous operation",
-        "Real-time monitoring",
-        "Instant alerts",
-        "Automated recovery"
-      ]
-    }
-  ];
-
-  const advancedFeatures = [
-    {
-      icon: <Network className="w-12 h-12 text-[#F97316]" />,
-      title: "Advanced Network Analysis",
-      description: "Deep mempool analysis and network monitoring for optimal MEV extraction.",
-      items: [
-        "Real-time mempool scanning",
-        "Network congestion analysis",
-        "Gas price predictions",
-        "Transaction simulation"
-      ]
-    },
-    {
-      icon: <Shield className="w-12 h-12 text-[#F97316]" />,
-      title: "Security Features",
-      description: "Enterprise-grade security measures to protect your MEV operations.",
-      items: [
-        "DDoS protection",
-        "SSL/TLS encryption",
-        "API key authentication",
-        "Rate limiting controls"
-      ]
-    },
-    {
-      icon: <ChartBar className="w-12 h-12 text-[#F97316]" />,
-      title: "Analytics Dashboard",
-      description: "Comprehensive analytics and reporting for your MEV activities.",
-      items: [
-        "Profit tracking",
-        "Performance metrics",
-        "Historical analysis",
-        "Custom reporting"
-      ]
+      description: "Round-the-clock monitoring and support to ensure your applications never miss a beat.",
     }
   ];
 
@@ -114,7 +60,7 @@ const Index = () => {
             className="glass-card p-8 md:p-12"
           >
             <h2 className="text-4xl font-black mb-12 text-center text-white">
-              Enterprise-Grade RPC Infrastructure
+              Why Choose Our RPC Service?
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -124,22 +70,14 @@ const Index = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="glass-card p-6 hover:bg-white/5 transition-all duration-300 transform hover:scale-105"
+                  className="glass-card p-6 hover-scale"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="mb-4 bg-white/5 p-4 rounded-full">
+                    <div className="mb-4">
                       {feature.icon}
                     </div>
                     <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
-                    <p className="text-white/80 mb-4">{feature.description}</p>
-                    <ul className="space-y-2 w-full">
-                      {feature.items.map((item, idx) => (
-                        <li key={idx} className="text-white/70 flex items-center gap-2 bg-white/5 p-2 rounded-lg">
-                          <div className="w-2 h-2 rounded-full bg-[#F97316]" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="text-white/80">{feature.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -149,50 +87,6 @@ const Index = () => {
       </section>
 
       <TechStackSection />
-
-      {/* Advanced Features Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="glass-card p-8 md:p-12"
-          >
-            <h2 className="text-4xl font-black mb-12 text-center text-white">
-              Advanced MEV Capabilities
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {advancedFeatures.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="glass-card p-6 hover:bg-white/5 transition-all duration-300 transform hover:scale-105"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <div className="mb-4 bg-white/5 p-4 rounded-full">
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
-                    <p className="text-white/80 mb-4">{feature.description}</p>
-                    <ul className="space-y-2 w-full">
-                      {feature.items.map((item, idx) => (
-                        <li key={idx} className="text-white/70 flex items-center gap-2 bg-white/5 p-2 rounded-lg">
-                          <div className="w-2 h-2 rounded-full bg-[#F97316]" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* MEV Bot Operations Section */}
       <section className="py-20 px-4">
