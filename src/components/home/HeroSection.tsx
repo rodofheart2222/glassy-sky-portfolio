@@ -66,8 +66,7 @@ export const HeroSection = ({ onStartClick }: HeroSectionProps) => {
           </Button>
           <Link to="/docs">
             <Button
-              variant="ghost"
-              className="px-8 py-6 text-white hover:text-primary hover:bg-white/10 rounded-full font-black text-lg transform hover:scale-105 transition-all"
+              className="px-8 py-6 border-2 border-[#F97316] bg-[#F97316]/10 hover:bg-[#F97316]/20 text-white rounded-full font-black text-lg shadow-xl shadow-[#F97316]/20 transform hover:scale-105 transition-all backdrop-blur-sm"
             >
               <BookOpen className="mr-2 h-6 w-6" />
               Docs
