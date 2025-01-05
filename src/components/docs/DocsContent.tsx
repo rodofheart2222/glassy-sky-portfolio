@@ -4,6 +4,7 @@ import { Overview } from "./sections/Overview";
 import { GettingStarted } from "./sections/GettingStarted";
 import { AccessingRPCEndpoints } from "./sections/AccessingRPCEndpoints";
 import { AuthenticationAndSecurity } from "./sections/AuthenticationAndSecurity";
+import { MakingRPCRequests } from "./sections/MakingRPCRequests";
 
 export const DocsContent = () => {
   return (
@@ -18,6 +19,7 @@ export const DocsContent = () => {
       <GettingStarted />
       <AccessingRPCEndpoints />
       <AuthenticationAndSecurity />
+      <MakingRPCRequests />
       {/* Additional sections will be added here */}
     </motion.div>
   );
