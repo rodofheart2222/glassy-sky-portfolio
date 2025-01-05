@@ -140,7 +140,10 @@ const Index = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="outline" className="px-8 py-6 rounded-full font-black text-lg border-2 hover:bg-primary/5 text-white border-white/20 group">
+              <Button 
+                variant="outline" 
+                className="px-8 py-6 rounded-full font-black text-lg border-2 hover:bg-white/10 text-white border-white/20 group"
+              >
                 {wrapWordsWithHoverCard("View Documentation", definitions)}
                 <ChevronRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
               </Button>
