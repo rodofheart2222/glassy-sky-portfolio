@@ -16,6 +16,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { QRCodeSVG } from "qrcode.react";
+import SolanaTransactions from "@/components/SolanaTransactions";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
@@ -123,6 +124,14 @@ const Index = () => {
             </Button>
           </div>
         </motion.div>
+      </section>
+
+      {/* Transactions Section */}
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold mb-8 text-center">Recent Transactions</h2>
+        <div className="max-w-4xl mx-auto">
+          <SolanaTransactions />
+        </div>
       </section>
 
       <Dialog open={showDepositDialog} onOpenChange={setShowDepositDialog}>
