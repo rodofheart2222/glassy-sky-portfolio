@@ -33,17 +33,20 @@ export const Overview = () => {
               <h4 className="text-xl font-bold mb-3">No Rate Limits</h4>
               <p>Perform as many RPC calls as needed without throttling, ideal for high-throughput applications.</p>
             </div>
+
             <div className="glass-card p-6">
               <h4 className="text-xl font-bold mb-3">Scalability</h4>
               <p>Accommodate growing application demands without worrying about hitting usage caps.</p>
             </div>
+
             <div className="glass-card p-6">
               <h4 className="text-xl font-bold mb-3">Reliability</h4>
               <p>Ensure consistent performance even under heavy load.</p>
             </div>
+
             <div className="glass-card p-6">
               <h4 className="text-xl font-bold mb-3">Enhanced Security</h4>
-              <p>Benefit from robust authentication and security measures to protect your data.</p>
+              <p>Benefit from robust authentication and security measures to protect your data and interactions.</p>
             </div>
           </div>
         </div>
