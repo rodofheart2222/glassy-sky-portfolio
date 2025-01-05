@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { CodeBlock } from "../../CodeBlock";
 
 export const RequestAuthentication = () => {
   return (
@@ -12,9 +13,8 @@ export const RequestAuthentication = () => {
       <div className="mb-6">
         <h4 className="text-xl font-bold mb-2">HTTP Requests</h4>
         <p><strong>Endpoint Usage:</strong> Replace the base URL with your custom endpoint.</p>
-        <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-          <code>
-            {`curl -X POST https://rpc.your-custom-endpoint.example.com \\
+        <CodeBlock>
+{`curl -X POST https://rpc.your-custom-endpoint.example.com \\
   -H "Content-Type: application/json" \\
   -d '{
         "jsonrpc": "2.0",
@@ -22,17 +22,15 @@ export const RequestAuthentication = () => {
         "method": "getAccountInfo",
         "params": ["<ACCOUNT_ADDRESS>"]
       }'`}
-          </code>
-        </pre>
+        </CodeBlock>
       </div>
 
       {/* WebSocket Connections */}
       <div>
         <h4 className="text-xl font-bold mb-2">WebSocket Connections</h4>
         <p><strong>Establishing a Connection:</strong> Use your custom endpoint URL for the WebSocket connection.</p>
-        <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg">
-          <code>
-            {`const socket = new WebSocket('wss://rpc.your-custom-endpoint.example.com/ws');
+        <CodeBlock>
+{`const socket = new WebSocket('wss://rpc.your-custom-endpoint.example.com/ws');
 
 socket.onopen = () => {
   console.log('WebSocket connection established.');
@@ -59,8 +57,7 @@ socket.onclose = () => {
 socket.onerror = (error) => {
   console.error('WebSocket error:', error);
 };`}
-          </code>
-        </pre>
+        </CodeBlock>
         <p className="mt-2"><strong>Note:</strong> Since authentication is handled via the custom endpoint, there is no need to include additional authentication headers.</p>
       </div>
     </div>
