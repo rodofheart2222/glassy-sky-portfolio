@@ -21,33 +21,26 @@ export const GettingStarted = () => {
           <ul className="list-disc pl-6 space-y-2">
             <li><strong>Basic Understanding of RPC</strong>: Familiarity with RPC concepts and JSON-RPC protocol.</li>
             <li><strong>Development Environment</strong>: A setup that allows making HTTP or WebSocket requests (e.g., Node.js, Python, cURL).</li>
-            <li><strong>API Credentials</strong>: An active account with access to your unique API key.</li>
+            <li><strong>Access to Discord</strong>: Ability to communicate with the administration team via Discord to obtain your custom endpoint.</li>
           </ul>
         </div>
 
-        {/* Obtaining API Credentials */}
+        {/* Obtaining Custom Endpoint */}
         <div>
-          <h3 className="text-2xl font-bold mb-4">Obtaining API Credentials</h3>
+          <h3 className="text-2xl font-bold mb-4">Obtaining Your Custom Endpoint</h3>
           <ol className="list-decimal pl-6 space-y-2">
-            <li><strong>Sign Up / Log In</strong>: Visit our <a href="https://portal.example.com" className="text-blue-400 hover:text-blue-300 underline transition-colors">Account Portal</a> and sign up or log in.</li>
-            <li><strong>Navigate to API Keys</strong>: Once logged in, go to the "API Keys" section in your dashboard.</li>
-            <li><strong>Generate a New API Key</strong>:
+            <li><strong>Join Our Discord Server</strong>: If you haven't already, join our <a href="https://discord.gg/example" className="text-blue-400 hover:text-blue-300 underline transition-colors">Discord Server</a> where the admin team manages RPC endpoint allocations.</li>
+            <li><strong>Request a Custom Endpoint</strong>: Navigate to the appropriate channel (e.g., #rpc-requests) and send a request for a custom RPC endpoint.</li>
+            <li><strong>Receive Your Endpoint</strong>: An admin will provide you with a unique custom endpoint tailored to your needs.</li>
+            <li><strong>Secure Your Endpoint</strong>:
               <ul className="list-disc pl-6 space-y-2">
-                <li>Click on "Create New API Key".</li>
-                <li>Provide a name or description for the key (e.g., "MyApp Integration").</li>
-                <li>Click "Generate" to create the key.</li>
-              </ul>
-            </li>
-            <li><strong>Secure Your API Key</strong>:
-              <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Copy the Key</strong>: Immediately copy the API key as it will be displayed only once.</li>
-                <li><strong>Store Securely</strong>: Save it in a secure location (e.g., environment variables, secret managers).</li>
-                <li><strong>Do Not Expose</strong>: Avoid hardcoding the API key in client-side code or repositories.</li>
+                <li><strong>Store Securely</strong>: Save your custom endpoint in a secure location (e.g., environment variables, secret managers).</li>
+                <li><strong>Do Not Share</strong>: Treat your custom endpoint as a sensitive credential to prevent unauthorized access.</li>
               </ul>
             </li>
           </ol>
           <p className="mt-4">
-            <strong>Note</strong>: If you lose your API key, you can regenerate or revoke it from the API Keys section.
+            <strong>Note</strong>: If you lose access to your custom endpoint or need a new one, please contact the admin team through Discord.
           </p>
         </div>
 
@@ -73,10 +66,10 @@ export const GettingStarted = () => {
               </ul>
             </li>
             <li><strong>Configure Environment Variables</strong>:
-              <p>Store your API key securely using environment variables.</p>
+              <p>Store your custom endpoint securely using environment variables.</p>
               <p>Example (Unix-based systems):</p>
               <pre className="bg-gray-700 text-gray-100 p-4 rounded-lg overflow-x-auto">
-                <code>export RPC_API_KEY=your_api_key_here</code>
+                <code>export RPC_ENDPOINT=https://your-custom-endpoint.example.com</code>
               </pre>
             </li>
             <li><strong>Set Up Error Handling</strong>: Implement mechanisms to handle potential errors and retries.</li>
