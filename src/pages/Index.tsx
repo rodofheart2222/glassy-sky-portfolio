@@ -12,7 +12,7 @@ import { Copy, Server, Zap, Clock } from "lucide-react";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ComparisonSection } from "@/components/home/ComparisonSection";
 import { motion } from "framer-motion";
-import RpcComparison from "@/components/RpcComparison";
+import { RpcComparison } from "@/components/RpcComparison";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
