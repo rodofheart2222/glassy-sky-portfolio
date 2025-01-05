@@ -28,7 +28,15 @@ export const Navbar = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
+            className="flex items-center gap-4"
           >
+            <div className="glass-card p-2 rounded-lg">
+              <img 
+                src="https://cryptologos.cc/logos/solana-sol-logo.png" 
+                alt="Solana Logo" 
+                className="h-8 w-8"
+              />
+            </div>
             <Link to="/" className="text-white text-xl font-bold hover:text-primary transition-colors duration-200">
               RPC Documentation
             </Link>
