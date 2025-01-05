@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Copy, ArrowRight, Zap, Activity } from "lucide-react";
+import { ChevronRight, Copy } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -16,6 +16,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { QRCodeSVG } from "qrcode.react";
+import SolanaTransactions from "@/components/SolanaTransactions";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
@@ -125,104 +126,26 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* RPC Performance Comparison Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="glass-card p-8 relative"
-          >
-            <h2 className="text-4xl font-black mb-8 text-gradient">Superior RPC Performance</h2>
-            
-            {/* Performance Comparison */}
-            <div className="flex items-center justify-between mb-12 relative">
-              <motion.div 
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="glass-card p-6 w-64 text-center"
-              >
-                <h3 className="text-xl font-bold text-white mb-2">Other RPCs</h3>
-                <div className="flex flex-col items-center gap-2">
-                  <Activity className="w-6 h-6 text-[#0EA5E9]" />
-                  <p className="text-[#0EA5E9]/80">Limited Throughput</p>
-                  <p className="text-white/60 text-sm">500-1000 req/s</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ x: [-10, 10, -10] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-              >
-                <ArrowRight className="w-8 h-8 text-[#F97316]" />
-              </motion.div>
-
-              <motion.div 
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="glass-card p-6 w-64 text-center border-[#F97316]/30"
-              >
-                <h3 className="text-xl font-bold text-white mb-2">Our RPC</h3>
-                <div className="flex flex-col items-center gap-2">
-                  <Zap className="w-6 h-6 text-[#F97316]" />
-                  <p className="text-[#F97316]">Unlimited Throughput</p>
-                  <p className="text-white/60 text-sm">No Rate Limits</p>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Performance Metrics */}
-            <div className="grid grid-cols-3 gap-6">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="glass-card p-6 text-center"
-              >
-                <h4 className="text-lg font-bold text-white mb-2">Response Time</h4>
-                <p className="text-[#F97316] text-2xl font-black">{"<"}100ms</p>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-                className="glass-card p-6 text-center"
-              >
-                <h4 className="text-lg font-bold text-white mb-2">Uptime</h4>
-                <p className="text-[#F97316] text-2xl font-black">99.99%</p>
-              </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="glass-card p-6 text-center"
-              >
-                <h4 className="text-lg font-bold text-white mb-2">Request Limit</h4>
-                <p className="text-[#F97316] text-2xl font-black">∞</p>
-              </motion.div>
-            </div>
-          </motion.div>
+      {/* Transactions Section */}
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold mb-8 text-center">Recent Transactions</h2>
+        <div className="max-w-4xl mx-auto">
+          <SolanaTransactions />
         </div>
       </section>
 
-      {/* Dialog Section */}
       <Dialog open={showDepositDialog} onOpenChange={setShowDepositDialog}>
         <DialogContent className="glass-dialog sm:max-w-md dialog-content">
           <DialogHeader>
             <DialogTitle className="text-white">Activate RPC Service</DialogTitle>
             <DialogDescription className="text-white/80">
-              Get unlimited RPC calls for just 1 SOL
+              Get unlimited RPC calls for just $100 worth of SOL
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col items-center space-y-4">
             <div className="bg-white p-4 rounded-lg">
               <QRCodeSVG 
-                value={`solana:${solanaAddress}?amount=1`}
+                value={`solana:${solanaAddress}?amount=100&label=Unlimited%20RPC%20Service`}
                 size={200}
                 level="H"
               />
