@@ -51,7 +51,7 @@ export const Navbar = () => {
               </Button>
             </Link>
             
-            <a href="https://discord.gg/GA8Nv3N3" target="_blank" rel="noopener noreferrer">
+            <a href="https://discord.gg/NNzKMdGn" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 className="text-white hover:text-primary hover:bg-white/10"
@@ -107,7 +107,7 @@ export const Navbar = () => {
                 </Link>
                 
                 <a 
-                  href="https://discord.gg/GA8Nv3N3" 
+                  href="https://discord.gg/NNzKMdGn" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white/80 hover:text-white transition-colors duration-200 flex items-center gap-2"
