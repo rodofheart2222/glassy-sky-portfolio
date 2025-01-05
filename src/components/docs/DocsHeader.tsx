@@ -32,9 +32,6 @@ export const DocsHeader = () => {
         <h1 className="text-4xl font-black mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Unlimited RPC Endpoints Documentation
         </h1>
-        <p className="text-lg text-white/90 leading-relaxed">
-          Welcome to the comprehensive documentation for our Unlimited RPC Endpoints. This guide provides an in-depth understanding of how to effectively utilize our RPC endpoints without any rate limits.
-        </p>
       </motion.div>
     </>
   );
