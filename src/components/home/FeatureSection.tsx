@@ -8,7 +8,7 @@ const features = [
     title: "High-Performance",
     description: [
       "99.99% uptime.",
-      "Global distribution for minimal latency."
+      "Global low latency."
     ],
   },
   {
