@@ -23,7 +23,7 @@ const features = [
     icon: <Clock className="w-12 h-12 text-[#F97316]" />,
     title: "24/7 Availability",
     description: [
-      "Round-the-clock monitoring and support.",
+      "24/7 monitoring.",
       "Always online, always reliable."
     ],
   }
