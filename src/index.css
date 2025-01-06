@@ -32,12 +32,17 @@
     );
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
     transform: translateZ(0);
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
+  }
+
+  .glass-card-hover {
     transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1),
                 border-color 0.3s ease,
                 box-shadow 0.3s ease;
   }
 
-  .glass-card:hover {
+  .glass-card-hover:hover {
     transform: scale(1.03) translateZ(0);
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);

@@ -8,14 +8,14 @@ export const ComparisonSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="glass-card p-8 md:p-12"
+          className="glass-card glass-card-hover p-8 md:p-12"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="glass-card p-6 border-[#F97316] border-2"
+              className="glass-card glass-card-hover p-6 border-[#F97316] border-2"
             >
               <h3 className="text-2xl font-bold mb-4 text-[#F97316]">Our RPC</h3>
               <ul className="space-y-4">
@@ -23,7 +23,7 @@ export const ComparisonSection = () => {
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="glass-card p-4 hover-scale"
+                  className="glass-card glass-card-hover p-4 hover-scale"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-[#F97316]" />
@@ -34,7 +34,7 @@ export const ComparisonSection = () => {
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="glass-card p-4 hover-scale"
+                  className="glass-card glass-card-hover p-4 hover-scale"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-[#F97316]" />
@@ -45,7 +45,7 @@ export const ComparisonSection = () => {
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="glass-card p-4 hover-scale"
+                  className="glass-card glass-card-hover p-4 hover-scale"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-[#F97316]" />
@@ -56,7 +56,7 @@ export const ComparisonSection = () => {
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="glass-card p-4 hover-scale"
+                  className="glass-card glass-card-hover p-4 hover-scale"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-[#F97316]" />
