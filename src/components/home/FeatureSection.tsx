@@ -7,7 +7,7 @@ const features = [
     icon: <Server className="w-12 h-12 text-[#F97316]" />,
     title: "High-Performance",
     description: [
-      "99.99% uptime guarantee.",
+      "99.99% uptime.",
       "Global distribution for minimal latency."
     ],
   },
@@ -16,7 +16,7 @@ const features = [
     title: "Lightning Fast Response",
     description: [
       "Average response time of 20ms.",
-      "Ensuring your applications run smoothly and efficiently."
+      "Always online, always reliable."
     ],
   },
   {
