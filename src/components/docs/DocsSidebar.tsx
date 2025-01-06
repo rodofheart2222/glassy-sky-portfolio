@@ -27,7 +27,7 @@ export const DocsSidebar = () => {
   return (
     <div className="h-screen sticky top-0 left-0">
       <div className="w-72 p-8 hidden lg:block overflow-y-auto max-h-screen backdrop-blur-2xl bg-white/5 border border-white/10 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] transition-all duration-300">
-        <h2 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent mb-8">RPC Documentation</h2>
+        <h3 className="text-2xl font-bold text-white mb-8">Documentation</h3>
         <nav className="space-y-4">
           {sections.map((section) => (
             <button
