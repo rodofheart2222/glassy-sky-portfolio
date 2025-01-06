@@ -38,18 +38,6 @@ export const Navbar = () => {
             </Link>
           </motion.div>
 
-          {/* Center Title */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="hidden md:flex items-center"
-          >
-            <h1 className="text-3xl font-black text-gradient tracking-wider">
-              Unlimited RPC
-            </h1>
-          </motion.div>
-
           {/* Desktop Navigation Cards */}
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
