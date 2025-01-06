@@ -24,7 +24,7 @@ const features = [
     title: "24/7 Availability",
     description: [
       "Round-the-clock monitoring and support.",
-      "Ensuring your applications never miss a beat."
+      "Always online, always reliable."
     ],
   }
 ];
