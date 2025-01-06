@@ -38,7 +38,7 @@
   }
 
   .glass-card:hover {
-    transform: scale(1.05) translateZ(0);
+    transform: scale(1.03) translateZ(0);
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
   }
@@ -46,7 +46,7 @@
   .hover-scale {
     @apply transition-transform duration-300 hover:scale-105;
   }
-  
+
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
   }
