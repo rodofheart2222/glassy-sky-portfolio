@@ -26,21 +26,19 @@ export const DocsSidebar = () => {
   };
 
   return (
-    <div className="w-64 glass-card p-6 hidden lg:block">
-      <div className="sticky top-6">
-        <h3 className="text-lg font-bold text-white mb-4">Documentation</h3>
-        <nav className="space-y-2">
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => scrollToSection(section.id)}
-              className="block w-full text-left text-white/80 hover:text-white transition-colors py-1 cursor-pointer"
-            >
-              {section.label}
-            </button>
-          ))}
-        </nav>
-      </div>
+    <div className="w-64 glass-card p-6 hidden lg:block sticky top-6">
+      <h3 className="text-2xl font-bold text-white mb-6">Documentation</h3>
+      <nav className="space-y-3">
+        {sections.map((section) => (
+          <button
+            key={section.id}
+            onClick={() => scrollToSection(section.id)}
+            className="block w-full text-left text-white/80 hover:text-white transition-colors py-2 px-3 rounded-lg hover:bg-white/5 cursor-pointer"
+          >
+            {section.label}
+          </button>
+        ))}
+      </nav>
     </div>
   );
 };
