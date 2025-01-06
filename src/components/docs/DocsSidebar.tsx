@@ -14,7 +14,7 @@ export const DocsSidebar = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const navbarHeight = 64;
+      const navbarHeight = 64; // height of the fixed navbar
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
 
@@ -26,15 +26,15 @@ export const DocsSidebar = () => {
   };
 
   return (
-    <div className="h-screen sticky top-0 left-0">
-      <div className="w-72 p-8 hidden lg:block overflow-y-auto max-h-screen backdrop-blur-2xl bg-white/5 border border-white/10 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] transition-all duration-300">
-        <h3 className="text-2xl font-bold text-white mb-8">Documentation</h3>
-        <nav className="space-y-4">
+    <div className="h-screen sticky top-0 left-0 pt-6">
+      <div className="w-64 glass-card p-6 hidden lg:block overflow-y-auto max-h-[calc(100vh-2rem)]">
+        <h3 className="text-2xl font-bold text-white mb-6">Documentation</h3>
+        <nav className="space-y-3">
           {sections.map((section) => (
             <button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
-              className="block w-full text-left backdrop-blur-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 text-white/80 hover:text-white py-3 px-4 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02]"
+              className="block w-full text-left glass-card hover:scale-105 transition-all duration-300 text-white/80 hover:text-white py-2 px-3 rounded-lg"
             >
               {section.label}
             </button>
