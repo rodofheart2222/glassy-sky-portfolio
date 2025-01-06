@@ -13,7 +13,6 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { ComparisonSection } from "@/components/home/ComparisonSection";
 import { FeatureSection } from "@/components/home/FeatureSection";
 import { MevSection } from "@/components/home/MevSection";
-import { GlassCard } from "@/components/home/GlassCard";
 
 const Index = () => {
   const [showDepositDialog, setShowDepositDialog] = useState(false);
@@ -30,11 +29,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 pt-8">
-        <GlassCard className="w-fit mx-auto">
-          <span className="text-white text-4xl font-bold">RPC</span>
-        </GlassCard>
-      </div>
       <HeroSection onStartClick={() => setShowDepositDialog(true)} />
       <FeatureSection />
       <MevSection />
