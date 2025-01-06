@@ -12,7 +12,7 @@ export const DocsContent = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="space-y-12 p-6 glass-card rounded-xl backdrop-blur-xl bg-black/10 w-full max-w-[95vw] lg:max-w-[calc(100vw-20rem)] mx-auto min-h-screen"
+      className="space-y-12 p-6 glass-card rounded-xl backdrop-blur-xl bg-black/10 ml-72 mr-4 min-h-screen"
     >
       <Overview />
       <GettingStarted />
