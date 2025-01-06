@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const sections = [
+  { id: "introduction", label: "Introduction" },
   { id: "overview", label: "Overview of RPC Endpoints" },
   { id: "getting-started", label: "Getting Started" },
   { id: "accessing-rpc-endpoints", label: "Accessing the RPC Endpoints" },
