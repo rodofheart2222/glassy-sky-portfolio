@@ -33,7 +33,7 @@ export const DocsSidebar = () => {
           <button
             key={section.id}
             onClick={() => scrollToSection(section.id)}
-            className="block w-full text-left text-white/80 hover:text-white transition-colors py-2 px-3 rounded-lg hover:bg-white/5 cursor-pointer"
+            className="block w-full text-left glass-card hover:scale-105 transition-all duration-300 text-white/80 hover:text-white py-2 px-3 rounded-lg"
           >
             {section.label}
           </button>
