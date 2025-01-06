@@ -76,7 +76,9 @@ const Index = () => {
                       {feature.icon}
                     </div>
                     <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
-                    <p className="text-white/80">{feature.description}</p>
+                    <motion.div className="glass-card p-4 w-full mb-2">
+                      <p className="text-white/80">{feature.description}</p>
+                    </motion.div>
                   </div>
                 </motion.div>
               ))}
@@ -99,11 +101,16 @@ const Index = () => {
                 <h2 className="text-4xl font-black mb-6 text-white">
                   MEV Bot Operations
                 </h2>
-                <div className="glass-card p-6 mb-6">
+                <motion.div className="glass-card p-6 mb-6">
                   <p className="text-white/80 text-lg">
-                    Maximize your trading advantage with our high-performance MEV bot infrastructure. Monitor mempool transactions and execute profitable arbitrage opportunities in real-time.
+                    Maximize your trading advantage with our high-performance MEV bot infrastructure.
                   </p>
-                </div>
+                </motion.div>
+                <motion.div className="glass-card p-6 mb-6">
+                  <p className="text-white/80 text-lg">
+                    Monitor mempool transactions and execute profitable arbitrage opportunities in real-time.
+                  </p>
+                </motion.div>
                 <ul className="space-y-4">
                   {[
                     "Real-time mempool monitoring for arbitrage opportunities",
@@ -139,7 +146,9 @@ const Index = () => {
           <DialogHeader>
             <DialogTitle className="text-white">Activate RPC Service</DialogTitle>
             <DialogDescription className="text-white/80">
-              Get unlimited RPC calls for just $100
+              <motion.div className="glass-card p-4 mb-4">
+                Get unlimited RPC calls for just $100
+              </motion.div>
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col items-center space-y-4">
@@ -162,11 +171,15 @@ const Index = () => {
                 <span className="sr-only">Copy</span>
               </Button>
             </div>
-            <DialogDescription className="text-center text-sm text-white/60">
-              Your RPC service will be activated automatically after payment is confirmed.
+            <DialogDescription className="text-center text-sm">
+              <motion.div className="glass-card p-4 mb-4">
+                Your RPC service will be activated automatically after payment is confirmed.
+              </motion.div>
             </DialogDescription>
             <div className="flex items-center gap-2 text-white/60 text-xs">
-              <span>In case of any problem, reach out to us on</span>
+              <motion.div className="glass-card p-4">
+                <span>In case of any problem, reach out to us on</span>
+              </motion.div>
               <Button
                 variant="secondary"
                 className="bg-white text-black hover:bg-white/90 text-xs px-3 py-1 h-7"
