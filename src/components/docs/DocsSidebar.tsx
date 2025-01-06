@@ -26,15 +26,15 @@ export const DocsSidebar = () => {
   };
 
   return (
-    <div className="h-screen sticky top-0 left-0 pt-6">
-      <div className="w-64 glass-card p-6 hidden lg:block overflow-y-auto max-h-[calc(100vh-2rem)]">
-        <h3 className="text-2xl font-bold text-white mb-6">Documentation</h3>
-        <nav className="space-y-3">
+    <div className="h-screen sticky top-0 left-0">
+      <div className="w-72 glass-card p-8 hidden lg:block overflow-y-auto max-h-screen">
+        <h3 className="text-2xl font-bold text-white mb-8">Documentation</h3>
+        <nav className="space-y-4">
           {sections.map((section) => (
             <button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
-              className="block w-full text-left glass-card hover:scale-105 transition-all duration-300 text-white/80 hover:text-white py-2 px-3 rounded-lg"
+              className="block w-full text-left glass-card hover:scale-105 transition-all duration-300 text-white/80 hover:text-white py-3 px-4 rounded-lg"
             >
               {section.label}
             </button>
