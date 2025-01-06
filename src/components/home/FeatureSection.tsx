@@ -7,7 +7,7 @@ const features = [
     icon: <Server className="w-12 h-12 text-[#F97316]" />,
     title: "High-Performance",
     description: [
-      "Enterprise-grade servers with 99.99% uptime guarantee.",
+      "99.99% uptime guarantee.",
       "Global distribution for minimal latency."
     ],
   },
