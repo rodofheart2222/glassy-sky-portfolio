@@ -32,7 +32,7 @@ export const Navbar = () => {
           >
             <Link 
               to="/" 
-              className="glass-card px-4 py-2 rounded-lg hover:scale-105 transition-transform duration-300"
+              className="glass-card px-4 py-2 rounded-lg transition-colors duration-300"
             >
               <span className="text-white text-xl font-bold">RPC Documentation</span>
             </Link>
@@ -46,7 +46,7 @@ export const Navbar = () => {
             className="hidden md:flex items-center space-x-4"
           >
             <Link to="/docs">
-              <div className="glass-card p-2 rounded-lg hover:scale-105 transition-transform duration-300">
+              <div className="glass-card p-2 rounded-lg transition-colors duration-300">
                 <Button
                   variant="ghost"
                   className="text-white hover:text-primary hover:bg-transparent"
@@ -58,7 +58,7 @@ export const Navbar = () => {
             </Link>
             
             <a href="https://discord.gg/u6qrhwnBs6" target="_blank" rel="noopener noreferrer">
-              <div className="glass-card p-2 rounded-lg hover:scale-105 transition-transform duration-300">
+              <div className="glass-card p-2 rounded-lg transition-colors duration-300">
                 <Button
                   variant="ghost"
                   className="text-white hover:text-primary hover:bg-transparent"
@@ -72,7 +72,7 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button Card */}
           <div className="md:hidden">
-            <div className="glass-card p-2 rounded-lg hover:scale-105 transition-transform duration-300">
+            <div className="glass-card p-2 rounded-lg transition-colors duration-300">
               <Button
                 variant="ghost"
                 size="icon"
@@ -99,7 +99,7 @@ export const Navbar = () => {
               <div className="flex flex-col space-y-4">
                 <Link 
                   to="/docs" 
-                  className="glass-card p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center gap-2 text-white"
+                  className="glass-card p-4 rounded-lg transition-colors duration-300 flex items-center gap-2 text-white"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <BookOpen className="h-4 w-4" />
@@ -110,7 +110,7 @@ export const Navbar = () => {
                   href="https://discord.gg/u6qrhwnBs6" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="glass-card p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center gap-2 text-white"
+                  className="glass-card p-4 rounded-lg transition-colors duration-300 flex items-center gap-2 text-white"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MessageCircle className="h-4 w-4" />
