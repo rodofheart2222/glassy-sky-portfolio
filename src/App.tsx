@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Index from './pages/Index'
 import Documentation from './pages/Documentation'
-import { Navbar } from './components/Navbar'
+import Navbar from './components/Navbar'
 import { Toaster } from '@/components/ui/toaster'
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
     document.body.appendChild(cursor)
 
     const moveCursor = (e: MouseEvent) => {
-      cursor.style.left = e.clientX + 'px'
-      cursor.style.top = e.clientY + 'px'
+      cursor.style.left = e.clientX - 4 + 'px'
+      cursor.style.top = e.clientY - 4 + 'px'
     }
 
     window.addEventListener('mousemove', moveCursor)
