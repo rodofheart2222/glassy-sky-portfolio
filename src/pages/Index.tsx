@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Copy } from "lucide-react";
+import { Link } from "react-router-dom";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ComparisonSection } from "@/components/home/ComparisonSection";
 import { FeatureSection } from "@/components/home/FeatureSection";
@@ -33,6 +34,12 @@ const Index = () => {
       <FeatureSection />
       <MevSection />
       <ComparisonSection />
+
+      <div className="fixed bottom-4 right-4">
+        <Link to="/ping-pong">
+          <Button variant="secondary">Play Ping Pong</Button>
+        </Link>
+      </div>
 
       <Dialog open={showDepositDialog} onOpenChange={setShowDepositDialog}>
         <DialogContent className="glass-dialog sm:max-w-md dialog-content">
